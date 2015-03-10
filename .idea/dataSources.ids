@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails snappy-guests: default" uuid="fe332c14-cb0c-492e-ac1f-31f3f45c2039">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails snappy-guests: development" uuid="908dea72-3069-4424-b020-64367f6516ca">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails snappy-guests: test" uuid="30e9e537-51b0-49b7-b7b8-450a0b0f11f2">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails snappy-guests: production" uuid="e7b3a98a-f80f-447b-8a02-64685f57b701">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
