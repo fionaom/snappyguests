@@ -26,4 +26,4 @@ production:
   <<: *default
   database: snappyguests_production
   username: app
-  password:
+  password: husdhr7we83494WDsds

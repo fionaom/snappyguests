@@ -27,6 +27,7 @@
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1/snappyguests_production</jdbc-url>
       <user-name>app</user-name>
+      <user-password>dfc2dfdfdfd9dfcedfc2dfd8df9ddfdddfcfdf92df99df9edf93df9edffddfeedfd9dfcedfd9</user-password>
       <libraries />
     </data-source>
   </component>
