@@ -11,8 +11,11 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+
+# JavaScript Engine
+gem 'libv8'                           # Distributes the V8 JavaScript engine in binary and source forms in order to support fast builds of The Ruby Racer
+gem 'therubyracer'
+gem 'execjs'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
