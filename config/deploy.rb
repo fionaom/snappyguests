@@ -58,12 +58,12 @@ end
 #ssh into the server as the app user via: cap environement ssh
 desc "SSH in to the server as app user."
 task :ssh do
-  exec("ssh -i ~/.ssh/app.pem app@52.16.33.194")
+  exec("ssh -i ~/.ssh/app.pem app@52.16.208.43")
 end
 
 desc "SSH in to the server as app user."
 task :ssh_ec2_user do
-  exec("ssh -i ~/.ssh/snappyguests.pem ec2-user@52.16.33.194")
+  exec("ssh -i ~/.ssh/snappyguests.pem ec2-user@52.16.208.43")
 end
 
 # lib/capistrano/tasks/agent_forwarding.rake
