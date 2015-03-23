@@ -12,4 +12,13 @@
   <data-source source="LOCAL" name="Rails snappy-guests: production" uuid="e7b3a98a-f80f-447b-8a02-64685f57b701">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails snappyguests: development" uuid="c5084255-d1b7-4cd3-a48b-5e239ca58683">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails snappyguests: test" uuid="2a76062e-dbb6-4b65-81fa-23e17cd34b75">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails snappyguests: production" uuid="9b6b605d-d3d0-4a0a-806b-497a9fb2f3e6">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>
