@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
 
   # Customize the Layout for Devise depending on whether or not it is a mobile request
   layout Proc.new { |controller|
-  if MobileSubdomain.matches?(request)
-      'mobile'
-  else
-      'application'
-  end
+      if MobileSubdomain.matches?(request)
+          'mobile'
+      else
+          'application'
+      end
   }
 end

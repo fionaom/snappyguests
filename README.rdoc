@@ -29,5 +29,7 @@ Please feel free to use a different markup language if you do not plan to run
 
 1. Download RVM: \curl -sSL https://get.rvm.io | bash -s stable --ruby
 
+2. Install ruby 2.2.0: rvm install 2.2.0
 
+3.
 
