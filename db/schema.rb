@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323154157) do
+ActiveRecord::Schema.define(version: 20150323215457) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -24,6 +24,28 @@ ActiveRecord::Schema.define(version: 20150323154157) do
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
     t.string   "uuid",       limit: 255,                      null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "body",               limit: 255
+    t.integer  "user_id",            limit: 4
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "photo_file_name",    limit: 255
+    t.string   "photo_content_type", limit: 255
+    t.integer  "photo_file_size",    limit: 4
+    t.datetime "photo_updated_at"
+    t.integer  "event_id",           limit: 4,   null: false
+  end
+
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
+
+  create_table "user_events", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "event_id",   limit: 4
+    t.boolean  "admin",      limit: 1
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,4 +70,5 @@ ActiveRecord::Schema.define(version: 20150323154157) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
+  add_foreign_key "messages", "users"
 end

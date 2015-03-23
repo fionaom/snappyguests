@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   constraints(lambda { |request| !MobileSubdomain.matches?(request) }) do
     scope :module => :admin do
 
-      resources :events
+      get  '/see/:uuid' => 'slide_show#show', as: :event_slideshow
+      resources :events do
+        resources :messages
+      end
 
       # Root of site
       root 'welcome#index', as: :admin_root

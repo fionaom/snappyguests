@@ -1,7 +1,8 @@
 class Event < ActiveRecord::Base
 
-#  attr_accessible :title, :start_date, :end_date, :latitude, :longitude
-#  attr_protected :uuid
+  has_many :messages
+  has_many :user_events
+  has_many :users, through: :user_events
 
   before_create :init_uuid
 

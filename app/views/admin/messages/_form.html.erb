@@ -1,0 +1,14 @@
+<%= simple_form_for([@event, @message], :html => { :class => 'form-horizontal', :multipart => true }) do |f| %>
+  <%= f.input :body %>
+  <%= error_span(@message[:body]) %>
+  <%= f.input :user_id %>
+  <%= error_span(@message[:user_id]) %>
+  <%= f.file_field :photo %>
+  <%= error_span(@message[:photo]) %>
+  <%= f.input :event_id %>
+  <%= error_span(@message[:event_id]) %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                event_messages_path(@event), :class => 'btn btn-default' %>
+<% end %>

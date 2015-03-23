@@ -1,0 +1,6 @@
+<h1>Viewing Event: <%= @event.title %></h1>
+
+<% @event.messages.each do |message| %>
+    <%= image_tag message.photo(:thumb).to_s %><br/>
+    <%= message.body %>
+<% end %>
