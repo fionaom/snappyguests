@@ -1,7 +1,7 @@
 Rails.application.configure do
 
-  APP_DOMAIN  = "app.snappyguests.com"
-  MOBILE_DOMAIN  = "m.snappyguests.com"
+  config.app_domain  = "app.snappyguests.com"
+  config.mobile_domain  = "m.snappyguests.com"
 
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -80,4 +80,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.default_url_options = { host: 'app.snappyguests.com', port: 3000 }
 end
