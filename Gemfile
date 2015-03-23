@@ -14,8 +14,12 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # JavaScript Engine
 gem 'libv8'                           # Distributes the V8 JavaScript engine in binary and source forms in order to support fast builds of The Ruby Racer
-gem 'therubyracer'
 gem 'execjs'
+
+# Bootstrap Support
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
