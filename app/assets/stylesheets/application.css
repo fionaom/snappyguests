@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+.ui-header img {
+    height: 40px;
+    margin-left: 10px;
+}
+
+.ui-content h3 {
+    text-align: center;
+}
