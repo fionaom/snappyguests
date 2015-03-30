@@ -1,5 +1,27 @@
-<% content_for(:theme) { "c" } %>
+<% content_for(:theme) { "b" } %>
+
+<!-- Image Picker -->
+<div style="width: 0; height: 0; overflow: hidden;">
+  <input id="PhotoPicker" type="file" accept="image/*">
+</div>
+
+<div id="photoContainer">
+  <video id="getUserMedia" width="320" height="400" autoplay=""></video>
+  <canvas id="canvas" width="320" height="400" style="display: none"></canvas>
+  <img id="display_photo" width="320" height="400" src="" alt="snapshot">
+</div>
 
 <% content_for(:footer) do %>
-    button
+    <div class="ui-grid-a">
+      <div class="ui-block-a">
+        <button id="PhotoButton">
+          Select Photo
+        </button>
+      </div>
+      <div class="ui-block-b">
+        <button id="takePhotoButton" data-camera-state="off">
+          Take Photo
+        </button>
+      </div>
+    </div>
 <% end %>
