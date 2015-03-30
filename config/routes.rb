@@ -20,8 +20,11 @@ Rails.application.routes.draw do
   # User Mobile Routes
   constraints(lambda { |request| MobileSubdomain.matches?(request) }) do
     scope :module => :mobile do
+
+      resources :messages
+
       # Root of site
-      root 'welcome#index', as: :mobile_root
+      root 'messages#new', as: :mobile_root
     end
   end
 

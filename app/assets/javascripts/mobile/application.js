@@ -17,15 +17,5 @@
 //= require_directory .
 
 $(function() {
-    $('#PhotoButton').click(function () {
-        $('#PhotoPicker').trigger('click');
-        return false;
-    });
 
-    $('#PhotoPicker').on('change', function (e) {
-        e.preventDefault();
-        if (this.files.length === 0) return;
-        var imageFile = this.files[0];
-        // do something
-    });
 });

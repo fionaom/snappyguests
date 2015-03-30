@@ -1,0 +1,25 @@
+<!-- Start of second page -->
+<div data-role="page" id="page_two" data-theme="d">
+
+  <div data-role="header" data-theme="b" data-position="fixed">
+    <a href="#page_one" data-icon="back" data-transition="slide" data-direction="reverse">Back</a>
+    <h1>Caption it!</h1>
+    <a href="#page_three" data-icon="check" data-transition="slide">Save</a>
+  </div>
+
+  <div role="main" class="ui-content">
+
+    <div id="photo_container">
+      <div id="photo_display">
+        <img id="display_photo" width="190" height="160" src="" alt="snapshot"/>
+      </div>
+      <div id="polaroid_mask">
+        <div id="photo_message">
+          <%= f.input :body, as: :text %>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+</div><!-- /page -->

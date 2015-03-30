@@ -1,0 +1,21 @@
+<!-- Start of second page -->
+<div data-role="page" id="page_three" data-theme="d">
+
+  <div data-role="header" data-theme="b" data-position="fixed">
+    <a href="#page_two" data-icon="back" data-transition="slide" data-direction="reverse">Back</a>
+    <h1>Email</h1>
+    <div class="ui-btn-right">
+      <%= f.submit 'Done', :data => {"icon" => "check", "theme" => "b"} %>
+    </div>
+  </div>
+
+  <div role="main" class="ui-content" data-theme="c">
+
+    <div id="photo_container">
+      You're not signed in. Give us your email so we can upload your photo
+      <%= f.input :email %>
+    </div>
+
+  </div><!-- /content -->
+
+</div><!-- /page -->

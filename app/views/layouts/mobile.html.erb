@@ -11,19 +11,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <div data-role="page" data-theme="<%= content_for?(:theme) ? yield(:theme) : "c"%>">
-      <div data-role="header" data-theme="b" data-position="fixed">
-        <img src="/assets/logo.png"/>
-      </div>
-      <div role="main" class="ui-content" data-theme="d">
-        <%= bootstrap_flash %>
-        <%= yield %>
-      </div>
-      <% if content_for?(:footer) %>
-          <div data-role="footer" data-theme="b" data-position="fixed">
-            <%= yield :footer %>
-          </div>
-      <% end %>
-    </div>
+    <%= bootstrap_flash %>
+    <%= yield %>
 </body>
 </html>

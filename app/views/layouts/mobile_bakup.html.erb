@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SnappyGuests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= javascript_include_tag 'mobile/application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <%= stylesheet_link_tag    'mobile/application', media: 'all', 'data-turbolinks-track' => true %>
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <% if content_for?(:page_one) %>
+        <%= yield :page_one %>
+    <% else %>
+        <div id="page_one" data-role="page" data-theme="<%= content_for?(:theme) ? yield(:theme) : "c"%>">
+          <div data-role="header" data-theme="b" data-position="fixed">
+            <img src="/assets/logo.png"/>
+          </div>
+          <div role="main" class="ui-content" data-theme="d">
+            <%= bootstrap_flash %>
+            <%= yield %>
+          </div>
+          <% if content_for?(:footer) %>
+              <div data-role="footer" data-theme="b" data-position="fixed">
+                <%= yield :footer %>
+              </div>
+          <% end %>
+        </div>
+    <% end %>
+    <%= yield :page_two %>
+    <%= yield :page_three %>
+</body>
+</html>
