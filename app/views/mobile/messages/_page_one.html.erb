@@ -2,7 +2,7 @@
 <!-- Start of second page -->
 <div data-role="page" id="page_one" data-theme="d">
   <div data-role="header" data-theme="b" data-position="fixed">
-    <img src="/assets/logo.png"/>
+    <%= image_tag("logo.png") %>
   </div>
 
   <!-- Image Picker -->
@@ -12,21 +12,15 @@
 
   <div role="main" class="ui-content" data-theme="d">
     <div id="photo_container">
-      <div id="photo_display">
-        <video id="getUserMedia" width="200" height="240" autoplay=""></video>
-        <canvas id="canvas" width="200" height="240" style="display: none"></canvas>
-      </div>
-      <div id="polaroid_mask"></div>
+        <%= image_tag 'upload_your_photo.png' %>
+        <div id="polaroid_mask"></div>
     </div>
   </div>
 
   <div data-role="footer" data-theme="b" data-position="fixed">
-    <div class="ui-grid-a">
+    <div class="ui-grid-solo">
       <div class="ui-block-a">
         <a id="photo_button" href="#" data-role="button">Select Photo</a>
-      </div>
-      <div class="ui-block-b">
-        <a id="take_photo_button" href="#" data-role="button" data-camera-state="off">Take Photo</a>
       </div>
     </div>
   </div>

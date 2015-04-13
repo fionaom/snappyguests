@@ -9,11 +9,10 @@
     </div>
   </div>
 
-  <div role="main" class="ui-content" data-theme="c">
-
-    <div id="photo_container">
-      You're not signed in. Give us your email so we can upload your photo
-      <%= f.input :email %>
+  <div role="main" class="ui-content" data-theme="d">
+      <div data-theme="c" class="ui-body ui-body-c ui-corner-all margin">
+        Since you are not signed in enter your email to upload your photo
+        <%= f.input :email, label: false, placeholder: 'name@email.com', type: :email %>
     </div>
 
   </div><!-- /content -->

@@ -18,6 +18,10 @@
     padding: 0px;
 }
 
+.ui-body.margin {
+    margin: 20px;
+}
+
 .ui-header img {
     height: 40px;
     margin-left: 10px;
@@ -27,11 +31,11 @@
     text-align: center;
 }
 
-.ui-footer .ui-grid-a div a {
+.ui-footer .ui-grid-solo div a {
     width: 90%;
 }
 
-.ui-footer .ui-grid-a div {
+.ui-footer .ui-grid-solo div {
     text-align: center;
 }
 
@@ -44,43 +48,30 @@ div#photo_container {
 
 div#photo_container #polaroid_mask
 {
-    background-image: url('/assets/polaroid-frames.png');
+    background-image: url('/assets/polaroid-blank.png');
     background-size: 320px 297px;
     width: 320px;
     height: 297px;
     position: absolute;
-    top: 0px;
+    top: 20px;
     left: 0px;
 }
 
-div#photo_container #photo_display
+div#photo_container img
 {
-    -ms-transform: rotate(-5.6deg); /* IE 9 */
-    -webkit-transform: rotate(-5.6deg); /* Safari */
-    transform: rotate(-5.6deg);
-    top: 0px;
-    position: absolute;
-    width: 200px;
-    height: 240px;
-    top: 42px;
-    left: 54px;
-}
-
-div#photo_container canvas {
-    display: none;
-}
-
-div#photo_container img {
-    margin-top: 40px;
+    margin-left: 18px;
+    margin-top: 37px;
+    max-width: 281px;
+    max-height: 220px;
 }
 
 div#photo_container #photo_message {
     position: absolute;
-    bottom: 0px;
-    -ms-transform: rotate(-5.6deg); /* IE 9 */
-    -webkit-transform: rotate(-5.6deg); /* Safari */
-    transform: rotate(-5.6deg);
-    width: 160px;
-    left: 25%;
+    bottom: -4px;
+   /* -ms-transform: rotate(-5.6deg);
+    -webkit-transform: rotate(-5.6deg);
+    transform: rotate(-5.6deg); */
+    width: 280px;
     font-family: inherit;
+    margin: 0px 20px;
 }
