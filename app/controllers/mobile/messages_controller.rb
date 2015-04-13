@@ -13,6 +13,7 @@ class Mobile::MessagesController < Mobile::ApplicationController
       if @message.save
         format.html { redirect_to mobile_root_url, notice: 'Message was successfully created.' }
       else
+        flash[:error] = @message.errors.full_messages
         format.html { render :new }
       end
     end
