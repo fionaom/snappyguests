@@ -30,10 +30,6 @@ $(function() {
                     if(width > maxWidth)
                     {
                         ratio = maxWidth / width;   // get ratio for scaling image
-                        height = height * ratio;    // Reset height to match scaled image
-                        width = width * ratio;    // Reset width to match scaled image
-                        snapshot.css("width", height); // Set new width
-                        snapshot.css("height", width);  // Scale height based on ratio
                     }
                 }
                 else
@@ -41,12 +37,12 @@ $(function() {
                     if(height > maxHeight)
                     {
                         ratio = maxHeight / height;   // get ratio for scaling image
-                        height = height * ratio;    // Reset height to match scaled image
-                        width = width * ratio;    // Reset width to match scaled image
-                        snapshot.css("width", width); // Set new width
-                        snapshot.css("height", height);  // Scale height based on ratio
                     }
                 }
+                height = height * ratio;    // Reset height to match scaled image
+                width = width * ratio;    // Reset width to match scaled image
+                snapshot.css("width", width); // Set new width
+                snapshot.css("height", height);  // Scale height based on ratio
 
                 snapshot.attr('src', e.target.result).show();
                 $.mobile.changePage('#page_two', {'transition' : 'slide'});
