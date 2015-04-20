@@ -1,6 +1,7 @@
 <% content_for(:theme) { "d" } %>
 
 <%= simple_form_for(@message, :html => { :multipart => true, "data-ajax" => "false" }) do |f| %>
+    <%= render :partial => "mobile/shared/errors", :locals => {:f => f, :object => @message} %>
     <%= f.input :event_id, :value => @message.event_id, :as => :hidden %>
     <%= render 'page_one', :f => f %>
     <%= render 'page_two', :f => f %>

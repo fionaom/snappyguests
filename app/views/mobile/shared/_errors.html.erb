@@ -1,0 +1,19 @@
+<% if (object.errors.to_a.size > 0) -%>
+    <div id="form-errors"  class="alert fade in alert-error">
+      <% unless MobileSubdomain.matches?(request) %>
+          <a class="close" data-dismiss="alert">&times;</a>
+      <% else  %>
+          <br/>
+      <% end %>
+      <h4>Please correct the following errors before continuing.</h4>
+      <ul>
+        <% object.errors.each do |field, message| -%>
+            <% if (object.errors[field].to_a.first() == message)-%>
+                <li>
+                  <strong><%= (field == :base ? "" : object.class.human_attribute_name(field).titleize) %></strong> <%= raw(message) %>
+                </li>
+            <% end -%>
+        <% end -%>
+      </ul>
+    </div>
+<% end -%>

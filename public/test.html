@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Image with Loader</title>
+    <style type="text/css">
+        .image { background:url(loader.gif) center center no-repeat transparent; float:left; width:500px; margin:5px; }
+        .image img { width:100%; }
+    </style>
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript">
+        /*     borrowed some code from
+         http://letmehaveblog.blogspot.com/2006/08/simple-jquery-plugin-to-load-images.html
+         adapted to work a with a more specific purpose
+         */
+        $.fn.addImage = function(src, fnBefore, fnAfter){
+            return this.each(function(){
+                var i = new Image();
+                i.src = src;
+                /*    if you want to make sure the loader displays correctly ,
+                 you could set CSS width/height here OR you could set a style
+                 as I have done.
+                 */
+                //$(this).css({"width":i.width, "height":i.height});
+                $(i).fadeTo(0,0);
+                fnBefore(i)
+                $(i).bind("load", i, fnAfter);
+                this.appendChild(i);
+            });
+        }
+
+
+        function beforeLoad(el) {
+            console.log("Before image load")
+            $(el).fadeOut();
+        }
+
+
+        function afterLoad(e) {
+            console.log("After image load")
+            $(e.target).fadeTo(500,1)
+            //.parent().removeAttr("style");//can remove parent css here if you like
+        }
+
+        $(document).ready(function(){
+
+            $("#image1").addImage(
+                    "http://placekitten.com/900/900",
+                    beforeLoad,
+                    afterLoad
+            );
+
+
+            $("#image2").addImage(
+                    "http://placekitten.com/800/800",
+                    beforeLoad,
+                    afterLoad
+            );
+
+
+        });
+    </script>
+
+
+</head>
+<body>
+<div id="content">
+    <div id="image1" class="image"></div>
+    <div id="image2" class="image" ></div>
+</div>
+</body>
+</html>

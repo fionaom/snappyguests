@@ -40,6 +40,9 @@ gem "paperclip", "~> 4.2"
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  # Prevent logging of assets in development mode
+  gem 'quiet_assets', group: :development
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 

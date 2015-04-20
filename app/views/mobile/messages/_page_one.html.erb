@@ -12,15 +12,16 @@
 
   <div role="main" class="ui-content" data-theme="d">
     <div id="photo_container">
+        <div id="polaroid_background"></div>
         <%= image_tag 'upload_your_photo.png' %>
-        <div id="polaroid_mask"></div>
+        <div id="polaroid_mask" class="image_upload"></div>
     </div>
   </div>
 
   <div data-role="footer" data-theme="b" data-position="fixed">
     <div class="ui-grid-solo">
       <div class="ui-block-a">
-        <a id="photo_button" href="#" data-role="button">Select Photo</a>
+        <a id="photo_button" href="#" data-role="button" class="image_upload">Select Photo</a>
       </div>
     </div>
   </div>

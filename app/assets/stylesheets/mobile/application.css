@@ -39,39 +39,11 @@
     text-align: center;
 }
 
-div#photo_container {
-    width: 320px;
-    height: 400px;
-    margin: 0 auto;
-    position: relative;
+textarea.error, input.error {
+    border-color: red;
+    border: 1px solid;
 }
 
-div#photo_container #polaroid_mask
-{
-    background-image: url('/assets/polaroid-blank.png');
-    background-size: 320px 297px;
-    width: 320px;
-    height: 297px;
-    position: absolute;
-    top: 20px;
-    left: 0px;
-}
-
-div#photo_container img
-{
-    margin-left: 18px;
-    margin-top: 37px;
-    max-width: 281px;
-    max-height: 220px;
-}
-
-div#photo_container #photo_message {
-    position: absolute;
-    bottom: -4px;
-   /* -ms-transform: rotate(-5.6deg);
-    -webkit-transform: rotate(-5.6deg);
-    transform: rotate(-5.6deg); */
-    width: 280px;
-    font-family: inherit;
-    margin: 0px 20px;
+label.error {
+    display: none;
 }
