@@ -1,6 +1,17 @@
-<h1>Viewing Event: <%= @event.title %></h1>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/easySlider.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#slider").easySlider();
+    });
+</script>
 
-<% @event.messages.each do |message| %>
-    <%= image_tag message.photo(:thumb).to_s %><br/>
-    <%= message.body %>
-<% end %>
+<div id="slideshowWrapper">
+    <h1>Viewing Event: <%= @event.title %></h1>
+
+    <div id="slider"><ul>
+        <% @event.messages.each do |message| %>
+            <li><%= image_tag message.photo(:medium).to_s %><br/><%= message.body %></li>
+        <% end %>
+    </ul></div>
+   </div>
