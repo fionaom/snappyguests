@@ -1,9 +1,12 @@
 var MAX_WIDTH = 281;
 var MAX_HEIGHT = 220;
 
-$(function() {
+$(document).bind('pageinit', function (event) {
+    $.mobile.hashListeningEnabled = false;
+});
 
-    $('.image_upload').click(function () {
+$(document).on('pageshow', function (event) {
+    $('.image_upload').on('click', function () {
         $('#message_photo').trigger('click');
         return false;
     });
@@ -46,13 +49,15 @@ $(function() {
 
                 snapshot.attr('src', e.target.result).show();
                 $.mobile.changePage('#page_two', {'transition' : 'slide'});
-
-
-                $('#imgresizepreview, #profilepicturepreview').attr('src', this.src);
             };
         };
         reader.readAsDataURL(this.files[0]);
     });
+});
+
+$(function() {
+
+
 
     $('#new_message').validate(function()
     {

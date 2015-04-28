@@ -52,16 +52,6 @@ class Admin::MessagesController < ApplicationController
     end
   end
 
-  # DELETE /messages/1
-  # DELETE /messages/1.json
-  def destroy
-    @message.destroy
-    respond_to do |format|
-      format.html { redirect_to event_messages_url(@event), notice: 'Message was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
   private
 
     # Use callbacks to share common setup or constraints between actions.
@@ -75,6 +65,6 @@ class Admin::MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:body, :user_id, :photo)
+      params.require(:message).permit(:body, :user_id, :photo, :event_id)
     end
 end
