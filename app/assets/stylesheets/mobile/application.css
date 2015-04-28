@@ -14,9 +14,11 @@
  *= require_self
  */
 
+/*
 .ui-content {
     padding: 0px;
 }
+*/
 
 .ui-body.margin {
     margin: 20px;

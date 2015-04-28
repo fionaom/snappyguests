@@ -2,7 +2,7 @@ var MAX_WIDTH = 281;
 var MAX_HEIGHT = 220;
 
 $(document).bind('pageinit', function (event) {
-    $.mobile.hashListeningEnabled = false;
+   // $.mobile.hashListeningEnabled = false;
 });
 
 $(document).on('pageshow', function (event) {
@@ -48,15 +48,15 @@ $(document).on('pageshow', function (event) {
                 snapshot.css("height", height);  // Scale height based on ratio
 
                 snapshot.attr('src', e.target.result).show();
-                $.mobile.changePage('#page_two', {'transition' : 'slide'});
+                $.mobile.changePage('#message', {'transition' : 'slide'});
             };
         };
         reader.readAsDataURL(this.files[0]);
     });
+
 });
 
 $(function() {
-
 
 
     $('#new_message').validate(function()

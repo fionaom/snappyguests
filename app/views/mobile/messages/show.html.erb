@@ -3,7 +3,7 @@
 <div data-role="page" data-theme="d">
   <div data-role="header" data-theme="b" data-position="fixed">
     <%= image_tag("logo.png") %>
-    <%= link_to 'Upload', new_message_path, :data => {'icon' => '', 'transition' => 'slide'}, :class => 'ui-btn-right' %>
+    <%= link_to 'Upload', "#{mobile_root_path}#upload", :data => {'transition' => 'slide', 'prefetch' => true}, :class => 'ui-btn-right' %>
   </div>
 
   <div role="main" class="ui-content" data-theme="d">

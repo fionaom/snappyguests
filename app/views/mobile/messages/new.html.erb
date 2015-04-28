@@ -1,10 +1,17 @@
 <% content_for(:theme) { "d" } %>
 
+<%#
+    We are using a multipage jquery mobile mark up here, with jquery.mobile.subpage plugin
+    So there is one main page "upload" which includes 2 subpages. This allows us to load
+    them in nicely using slide transitions
+%>
 <%= simple_form_for(@message, :html => { :multipart => true, "data-ajax" => "false" }) do |f| %>
-    <%= render :partial => "mobile/shared/errors", :locals => {:f => f, :object => @message} %>
-    <%= f.input :event_id, :value => @message.event_id, :as => :hidden %>
-    <%= render 'page_one', :f => f %>
-    <%= render 'page_two', :f => f %>
-    <%= render 'page_three', :f => f %>
+<div id="upload" data-role="page" data-theme="d" data-dom-cache="true">
+        <%= render :partial => "mobile/shared/errors", :locals => {:f => f, :object => @message} %>
+        <%= f.input :event_id, :value => @message.event_id, :as => :hidden %>
+        <%= render 'upload', :f => f %>
+        <%= render 'message', :f => f %>
+        <%= render 'email', :f => f %>
+</div>
 <% end %>
 
