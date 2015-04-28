@@ -6,12 +6,16 @@
     });
 </script>
 
+<div id="eventTitle"><h1>Viewing Event: <%= @event.title %></h1></div>
 <div id="slideshowWrapper">
-    <h1>Viewing Event: <%= @event.title %></h1>
-
     <div id="slider"><ul>
         <% @event.messages.each do |message| %>
-            <li><%= image_tag message.photo(:medium).to_s %><br/><%= message.body %></li>
+            <li><div class="polaroidShape">
+                    <div class="polaroidPhotoShape">
+                        <%= image_tag message.photo(:medium).to_s %>
+                    </div>
+                <br/><br/> <%= message.body %>
+            </div></li>
         <% end %>
     </ul></div>
    </div>
