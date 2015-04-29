@@ -1,14 +1,18 @@
 <!-- Start of second page -->
   <div role="main" class="ui-content message_step" style="display:none">
 
-    <div id="photo_container" class="contents" style="display:none">
-      <div id="polaroid_background"></div>
-      <img id="display_photo" src="" alt="snapshot"/>
-      <div id="polaroid_mask">
-        <div id="photo_message">
-          <%= f.input :body, label: false, as: :text, placeholder: 'Your message here', :autofocus => true %>
+    <div class="contents" style="display:none">
+
+      <div id="photo_container">
+        <%= image_tag "", :id => "display_photo" %>
+        <%= image_tag "/images/polaroid-blank.png", :id => "polaroid_image" %>
+        <div id="polaroid_mask">
+          <div id="photo_message">
+            <%= f.input :body, label: false, as: :text, placeholder: 'Your message here', :autofocus => true %>
+          </div>
         </div>
       </div>
+
     </div>
 
   </div><!-- /content -->

@@ -1,26 +1,21 @@
 <% content_for(:theme) { "d" } %>
 
-<%#
-    We are using a multipage jquery mobile mark up here, with jquery.mobile.subpage plugin
-    So there is one main page "upload" which includes 2 subpages. This allows us to load
-    them in nicely using slide transitions
-%>
-<div id="upload" data-role="page" data-theme="d">
+<div id="upload_page" data-role="page" data-theme="d">
 
   <%= simple_form_for(@message, :html => { :multipart => true, "data-ajax" => "false" }) do |f| %>
 
       <!-- Headers -->
-      <div data-role="header" data-theme="b" data-position="fixed" class="upload_step">
+      <div data-role="header" data-theme="b" data-position="fixed" data-tap-toggle="false" class="upload_step">
         <%= image_tag("logo.png") %>
       </div>
 
-      <div data-role="header" data-theme="b" data-position="fixed" class="message_step" style="display:none">
+      <div data-role="header" data-theme="b" data-position="fixed" data-tap-toggle="false" class="message_step" style="display:none">
         <a id="message_back_button" data-icon="back">Back</a>
         <h1>Caption it!</h1>
         <a id="message_save_button" data-icon="check">Save</a>
       </div>
 
-      <div data-role="header" data-theme="b" data-position="fixed" class="email_step" style="display:none">
+      <div data-role="header" data-theme="b" data-position="fixed" data-tap-toggle="false" class="email_step" style="display:none">
         <a id="email_back_button" data-icon="back">Back</a>
         <h1>Email</h1>
         <div class="ui-btn-right">
@@ -35,7 +30,7 @@
         <%= render 'email', :f => f %>
 
       <!-- Footer -->
-      <div data-role="footer" data-theme="b" data-position="fixed" class="upload_step">
+      <div data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false" class="upload_step">
         <div class="ui-grid-solo">
           <div class="ui-block-a">
             <a id="photo_button" href="#" data-role="button" class="image_upload">Select Photo</a>

@@ -1,9 +1,9 @@
 var MAX_WIDTH = 281;
 var MAX_HEIGHT = 220;
-
+/*
 $(document).bind('pageinit', function (event) {
    // $.mobile.hashListeningEnabled = false;
-});
+});*/
 
 $(document).on('pageshow', function (event) {
     $('.image_upload').on('click', function () {
@@ -104,7 +104,11 @@ function changeStep(from, to, direction)
 }
 
 function fadeInImage(imageContainer) {
-    $(imageContainer).css({opacity: 1});
+    $(imageContainer).removeClass('loading');
+    if ($(imageContainer).parent('#photo_container').children('.fadeInImage.loading').length == 0) {
+        $(imageContainer).parent('#photo_container').removeClass('loadingImages');
+        $(imageContainer).parent('#photo_container').children('.fadeInImage').css({opacity: 1});
+    }
 }
 
 $(function() {

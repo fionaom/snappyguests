@@ -4,10 +4,13 @@
   </div>
 
   <div role="main" class="ui-content" data-theme="d">
-    <div id="photo_container" class="contents">
-        <div id="polaroid_background"></div>
-        <%= image_tag 'upload_your_photo.png' %>
-        <div id="polaroid_mask" class="image_upload"></div>
+
+    <div id="photo_container" class="loadingImages">
+      <%= image_tag 'upload_your_photo.png', :onload=>"fadeInImage(this)", :class=> "fadeInImage loading", :id => "message_photo" %>
+      <%= image_tag "/images/polaroid-blank.png", :onload=>"fadeInImage(this)", :class=> "fadeInImage loading", :id => "polaroid_image" %>
+      <div id="polaroid_mask" class="image_upload">
+      </div>
     </div>
+
   </div>
 </div>

@@ -17,8 +17,6 @@ div#photo_container {
 
 div#photo_container #polaroid_mask
 {
-  background-image: url('/images/polaroid-blank.png');
-  background-size: 320px 297px;
   width: 320px;
   height: 297px;
   position: absolute;
@@ -26,6 +24,14 @@ div#photo_container #polaroid_mask
   left: 0px;
 }
 
+div#photo_container.loadingImages #polaroid_mask {
+  background-image: url('/assets/loading.gif');
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/*
 div#photo_container div#polaroid_background {
   background-color: #000000;
   background-size: 320px 297px;
@@ -35,12 +41,22 @@ div#photo_container div#polaroid_background {
   top: 20px;
   left: 0px;
 }
+*/
 
-div#photo_container img
+div#photo_container img#message_photo
 {
   max-width: 281px;
   max-height: 220px;
   position: relative;
+}
+
+div#photo_container img#polaroid_image
+{
+  width: 320px;
+  height: 297px;
+  position: absolute;
+  top: 20px;
+  left: 0px;
 }
 
 div#photo_container #photo_message {
@@ -58,9 +74,14 @@ div#photo_container #photo_message textarea {
   box-shadow: none;
   background-color: transparent;
   border: 0px;
-  padding: 0px;
+  padding: 10px 0px;
+  height: 60px;
 }
 
 div#photo_container #photo_message textarea:disabled{
   opacity: 1 !important;
+}
+
+div#photo_container.loadingImages #photo_message {
+  opacity: 0 !important;
 }
