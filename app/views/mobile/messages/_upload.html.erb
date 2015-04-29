@@ -1,26 +1,13 @@
-
-<!-- Start of second page -->
-  <div data-role="header" data-theme="b" data-position="fixed">
-    <%= image_tag("logo.png") %>
-  </div>
-
-  <!-- Image Picker -->
+<div class="upload_step">
   <div style="width: 0; height: 0; overflow: hidden;">
     <%= f.file_field :photo, :accept => "image/*" %>
   </div>
 
   <div role="main" class="ui-content" data-theme="d">
-    <div id="photo_container">
+    <div id="photo_container" class="contents">
         <div id="polaroid_background"></div>
         <%= image_tag 'upload_your_photo.png' %>
         <div id="polaroid_mask" class="image_upload"></div>
     </div>
   </div>
-
-  <div data-role="footer" data-theme="b" data-position="fixed">
-    <div class="ui-grid-solo">
-      <div class="ui-block-a">
-        <a id="photo_button" href="#" data-role="button" class="image_upload">Select Photo</a>
-      </div>
-    </div>
 </div>

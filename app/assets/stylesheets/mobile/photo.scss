@@ -9,6 +9,12 @@ div#photo_container {
   line-height: 297px;
 }
 
+.fadeInImage
+{
+  opacity: 0;
+  transition: opacity ease-out  1.75s;
+}
+
 div#photo_container #polaroid_mask
 {
   background-image: url('/images/polaroid-blank.png');
@@ -52,4 +58,9 @@ div#photo_container #photo_message textarea {
   box-shadow: none;
   background-color: transparent;
   border: 0px;
+  padding: 0px;
+}
+
+div#photo_container #photo_message textarea:disabled{
+  opacity: 1 !important;
 }

@@ -4,9 +4,11 @@ class Mobile::MessagesController < Mobile::ApplicationController
 
   before_action :set_event
   before_action :set_message, only: [:show]
+  before_action :set_email, only: [:create]
 
   def new
     @message = Message.new(:user => current_user, :event => Event.first)
+    @message.email = session[:email] if session[:email].present?
   end
 
   def create
@@ -30,6 +32,12 @@ class Mobile::MessagesController < Mobile::ApplicationController
 
   def set_message
     @message = Message.find(params[:id])
+  end
+
+  def set_email
+    session[:email] = params[:message][:email] if params[:message][:email]
+    p "Session"
+    p session[:email]
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

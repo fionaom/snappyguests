@@ -48,21 +48,75 @@ $(document).on('pageshow', function (event) {
                 snapshot.css("height", height);  // Scale height based on ratio
 
                 snapshot.attr('src', e.target.result).show();
-                $.mobile.changePage('#message', {'transition' : 'slide'});
+                changeStep('.upload_step', '.message_step', 'fwd');
+              //  $.mobile.changePage('#message', {'transition' : 'slide'});
             };
         };
         reader.readAsDataURL(this.files[0]);
     });
 
+    $('#message_back_button').on('click', function () {
+        // Remove the previously selected image
+        $('#message_photo').val('');
+        changeStep('.message_step', '.upload_step', 'back');
+    });
+
+    $('#message_save_button').on('click', function () {
+        changeStep('.message_step', '.email_step', 'fwd');
+    });
+
+    $('#email_back_button').on('click', function () {
+        changeStep('.email_step', '.message_step', 'back');
+    });
+
+    $('#new_message').on('submit', function(e)
+    {
+        if ($('#new_message').valid()) {
+            $.mobile.loading('show', {
+                text: 'Uploading...',
+                textVisible: true,
+                theme: 'b',
+                html: ""
+            });
+        }
+        else
+        {
+            e.preventDefault();
+        }
+    });
+
 });
+
+function changeStep(from, to, direction)
+{
+    if (direction == 'fwd') {
+        $(to).find('.contents').fadeIn('slow');
+        $(to).show('slide', {direction: 'right'});
+        $(from).hide('slide', {direction: 'left'});
+        $(from).find('.contents').fadeOut('slow');
+    }
+    else {
+        $(to).find('.contents').fadeIn();
+        $(to).show('slide', {direction: 'left'});
+        $(from).hide('slide', {direction: 'right'});
+        $(from).find('.contents').fadeOut('slow');
+    }
+}
+
+function fadeInImage(imageContainer) {
+    $(imageContainer).css({opacity: 1});
+}
 
 $(function() {
 
 
-    $('#new_message').validate(function()
-    {
+    $( "#new_message" ).validate({
         rules: {
-            body: "required"
+            body: "required",
+            email: {
+                required: true,
+                email: true
+            }
         }
     });
 

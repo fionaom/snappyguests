@@ -1,20 +1,14 @@
-<!-- Start of second page -->
-<div data-role="subpage" id="email" data-theme="d" data-dom-cache="true">
+<!-- Start of email input step -->
+<div role="main" class="ui-content email_step" data-theme="d" style="display:none">
 
-  <div data-role="header" data-theme="b" data-position="fixed">
-    <a href="#message" data-icon="back" data-transition="slide" data-direction="reverse">Back</a>
-    <h1>Email</h1>
-    <div class="ui-btn-right">
-      <%= f.submit 'Done', :data => {"icon" => "check", "theme" => "b"} %>
-    </div>
+  <!-- Fade in content after slide -->
+  <div data-theme="c" class="ui-body ui-body-c ui-corner-all margin contents" style="display:none">
+    <% if session[:email].present? %>
+        Using previously entered email
+    <% else %>
+        Since you are not signed in enter your email to upload your photo
+    <% end %>
+    <%= f.input :email, label: false, input_html: {'data-clear-btn' => true}, placeholder: 'name@email.com', type: :email %>
   </div>
 
-  <div role="main" class="ui-content" data-theme="d">
-      <div data-theme="c" class="ui-body ui-body-c ui-corner-all margin">
-        Since you are not signed in enter your email to upload your photo
-        <%= f.input :email, label: false, placeholder: 'name@email.com', type: :email %>
-    </div>
-
-  </div><!-- /content -->
-
-</div><!-- /page -->
+</div><!-- /content -->

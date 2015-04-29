@@ -9,10 +9,10 @@
   <div role="main" class="ui-content" data-theme="d">
     <div id="photo_container">
       <div id="polaroid_background"></div>
-      <%= image_tag @message.photo(:medium) %>
-      <div id="polaroid_mask" class="image_upload">
+      <%= image_tag @message.photo(:medium), :onload=>"fadeInImage(this)", :class=> "fadeInImage" %>
+      <div id="polaroid_mask">
         <div id="photo_message">
-          <%= @message.body %>
+            <%= text_area_tag :body, @message.body, label: false, as: :text, :disabled => true %>
         </div>
       </div>
     </div>
