@@ -15,11 +15,9 @@
  *= require_self
  */
 
-/*
 .ui-content {
     padding: 0px;
 }
-*/
 
 .ui-body.margin {
     margin: 20px;
@@ -50,5 +48,4 @@ label.error {
     font-size: 10px;
     color: red;
     position: absolute;
-    bottom: -2px;
 }

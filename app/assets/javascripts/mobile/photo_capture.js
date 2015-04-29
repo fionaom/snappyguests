@@ -7,11 +7,11 @@ $(document).bind('pageinit', function (event) {
 
 $(document).on('pageshow', function (event) {
     $('.image_upload').on('click', function () {
-        $('#message_photo').trigger('click');
+        $('input[type="file"]').trigger('click');
         return false;
     });
 
-    $('#message_photo').on('change', function (e) {
+    $('input[type="file"]').on('change', function (e) {
         e.preventDefault();
         if (this.files.length === 0) return;
         var reader = new FileReader();
@@ -89,6 +89,7 @@ $(document).on('pageshow', function (event) {
 
 function changeStep(from, to, direction)
 {
+   // $.mobile.silentScroll(0);
     if (direction == 'fwd') {
         $(to).find('.contents').fadeIn('slow');
         $(to).show('slide', {direction: 'right'});
@@ -100,6 +101,13 @@ function changeStep(from, to, direction)
         $(to).show('slide', {direction: 'left'});
         $(from).hide('slide', {direction: 'right'});
         $(from).find('.contents').fadeOut('slow');
+    }
+
+    if (to == '.message_step')
+    {
+        setTimeout(function(){
+            $('#message_body').focus();
+        },500);
     }
 }
 
