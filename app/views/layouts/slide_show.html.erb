@@ -13,6 +13,7 @@
   <![endif]-->
 
   <%= stylesheet_link_tag "application", :media => "all" %>
+  <link href="http://fonts.googleapis.com/css?family=Merienda+One" rel="stylesheet" type="text/css">
 
   <!-- For third-generation iPad with high-resolution Retina display: -->
   <!-- Size should be 144 x 144 pixels -->
@@ -35,8 +36,10 @@
   <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
   <%= javascript_include_tag "application" %>
+
+  <%= yield :header %>
 </head>
-<body>
+<body id="slide_show">
 
 <div class="container">
   <div class="row">
@@ -47,6 +50,12 @@
   </div><!--/row-->
 
 </div> <!-- /container -->
+
+<footer class="footer">
+  <div class="container">
+    <%= @event.title %>
+  </div>
+</footer>
 
 </body>
 </html>

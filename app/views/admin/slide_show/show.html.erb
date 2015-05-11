@@ -1,21 +1,28 @@
-<script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/easySlider.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#slider").easySlider();
-    });
-</script>
+<div class="demo">
+  <ul id="lightSlider">
+    <% @event.messages.order(:created_at).limit(10).each do |message| %>
+    <li data-thumb="<%= message.photo(:thumb).to_s %>">
+      <img src="<%= message.photo(:large).to_s %>" />
+    </li>
+    <% end %>
+  </ul>
+</div>
 
-<div id="eventTitle"><h1>Viewing Event: <%= @event.title %></h1></div>
-<div id="slideshowWrapper">
-    <div id="slider"><ul>
-        <% @event.messages.each do |message| %>
-            <li><div class="polaroidShape">
-                    <div class="polaroidPhotoShape">
-                        <%= image_tag message.photo(:medium).to_s %>
-                    </div>
-                <br/><br/> <%= message.body %>
-            </div></li>
-        <% end %>
-    </ul></div>
-   </div>
+<% content_for :header do %>
+    <script>
+        $(document).ready(function() {
+            $('#lightSlider').lightSlider({
+                auto: true,
+                gallery: true,
+                item: 1,
+                loop: true,
+                slideMargin: 0,
+                thumbItem: 9,
+                onSliderLoad: function (el) {
+                    $('.lSSlideWrapper').height($(window).height()-170);
+                }
+            });
+
+        });
+    </script>
+<% end %>

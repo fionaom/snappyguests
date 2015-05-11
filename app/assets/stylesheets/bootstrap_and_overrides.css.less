@@ -29,3 +29,23 @@ body {padding-top: 60px; }
 //
 // Example:
 // @link-color: #ff0000;
+
+/* Sticky footer */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  /* Fallback for web browsers that doesn't support RGBa */
+  background: rgb(0, 0, 0) transparent;
+  /* RGBa with 0.6 opacity */
+  background: rgba(0, 0, 0, 0.6);
+  /* For IE 5.5 - 7*/
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.footer .container {
+  padding-top: 20px;
+}
