@@ -1,8 +1,9 @@
 /** ==========================================================
 
- * jquery lightGallery.js v1.1.5 3/29/2015
+ * jquery lightGallery.js v1.1.5 // 3/29/2015
  * http://sachinchoolur.github.io/lightGallery/
  * Released under the MIT License - http://opensource.org/licenses/mit-license.html  ---- FREE ----
+ * CUSTOM - Fiona - so autoplay will work when user clicks thumbnail
 
  =========================================================/**/
 ;
@@ -214,10 +215,8 @@
                             swipeThreshold = settings.swipeThreshold;
                         if (distance >= swipeThreshold) {
                             $this.prevSlide();
-                            clearInterval(interval);
                         } else if (distance <= -swipeThreshold) {
                             $this.nextSlide();
-                            clearInterval(interval);
                         }
                     });
                 }
@@ -488,7 +487,9 @@
                         $(this).addClass('active');
                         $this.slide(index);
                         $this.animateThumb(index);
-                        clearInterval(interval);
+
+                        $this.restart(index);
+
                     });
                     thumbInfo.prepend('<span class="ib count">' + settings.lang.allPhotos + ' (' + $thumb.length + ')</span>');
                     if (settings.showThumbByDefault) {
@@ -535,16 +536,17 @@
                     $next = $gallery.find('#lg-next');
                     $prev.bind('click', function () {
                         $this.prevSlide();
-                        clearInterval(interval);
                     });
                     $next.bind('click', function () {
                         $this.nextSlide();
-                        clearInterval(interval);
                     });
                 }
             },
-            autoStart: function () {
+            restart: function(index) {
+                console.log(index);
                 var $this = this;
+                clearInterval(interval);
+                // Restart autoplay
                 if (settings.auto === true) {
                     interval = setInterval(function () {
                         if (index + 1 < $children.length) {
@@ -557,6 +559,10 @@
                     }, settings.pause);
                 }
             },
+            autoStart: function () {
+                var $this = this;
+                $this.restart($this.index);
+            },
             keyPress: function () {
                 var $this = this;
                 $(window).bind('keyup.lightGallery', function (e) {
@@ -564,7 +570,6 @@
                     e.stopPropagation();
                     if (e.keyCode === 37) {
                         $this.prevSlide();
-                        clearInterval(interval);
                     }
                     if (e.keyCode === 38 && settings.thumbnail === true && $children.length > 1) {
                         if (!$gallery.hasClass('open')) {
@@ -576,7 +581,6 @@
                         }
                     } else if (e.keyCode === 39) {
                         $this.nextSlide();
-                        clearInterval(interval);
                     }
                     if (e.keyCode === 40 && settings.thumbnail === true && $children.length > 1 && !settings.showThumbByDefault) {
                         if ($gallery.hasClass('open')) {
@@ -597,6 +601,7 @@
                 if (index + 1 < $children.length) {
                     index++;
                     $this.slide(index);
+                    $this.restart(index);
                 } else {
                     if (settings.loop) {
                         index = 0;
@@ -619,6 +624,7 @@
                 if (index > 0) {
                     index--;
                     $this.slide(index);
+                    $this.restart(index);
                 } else {
                     if (settings.loop) {
                         index = $children.length - 1;

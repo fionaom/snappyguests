@@ -1,25 +1,31 @@
-<div class="demo">
-  <ul id="lightSlider">
-    <% @event.messages.order(:created_at).limit(10).each do |message| %>
-    <li data-thumb="<%= message.photo(:thumb).to_s %>">
-      <img src="<%= message.photo(:large).to_s %>" />
-    </li>
-    <% end %>
-  </ul>
-</div>
+<ul id="light-gallery" class="gallery">
+  <% @event.messages.order(:created_at).limit(10).each do |message| %>
+  <li data-html="#inlineHtml" data-sub-html="<div class='title'><%=message.body%></div>" data-src="<%= message.photo(:large).to_s %>">
+    <img src="<%= message.photo(:large).to_s %>" />
+  </li>
+  <% end %>
+</ul>
 
 <% content_for :header do %>
     <script>
         $(document).ready(function() {
-            $('#lightSlider').lightSlider({
+            $('#light-gallery').lightGallery({
+                lang: {
+                    allPhotos: '<%= @event.title %>'
+                },
                 auto: true,
-                gallery: true,
-                item: 1,
                 loop: true,
-                slideMargin: 0,
-                thumbItem: 9,
-                onSliderLoad: function (el) {
-                    $('.lSSlideWrapper').height($(window).height()-170);
+                showThumbByDefault: true,
+                onOpen        : function(el) {
+                    // Do not show controls - hiding them from config doesn't work correctly
+                    $("#lg-action").hide();
+                    setTimeout(function () {
+                        $('#lg-gallery').removeClass('open');
+                    }, 800);
+                },
+                onSlideAfter   : function(el) {
+                    // Manually restart the autoplay since it is stopped when user interacts
+                  //  $(this).slide(3);
                 }
             });
 
