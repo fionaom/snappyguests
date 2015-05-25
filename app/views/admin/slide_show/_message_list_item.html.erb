@@ -1,0 +1,3 @@
+<li style="display:none" id="message_<%=message.id%>" data-message-id="<%= message.id %>" data-sub-html="<div class='message polaroid_message'><%=message.body%></div>" data-src="<%= message.photo(:large).to_s %>">
+  <img src="<%= message.photo(:large).to_s %>" onload="bounceIn('#message_<%=message.id%>')" />
+</li>

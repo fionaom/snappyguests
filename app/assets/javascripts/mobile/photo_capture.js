@@ -1,15 +1,40 @@
 var MAX_WIDTH = 281;
 var MAX_HEIGHT = 220;
+var MAX_MSG_LENGTH = 75;
 /*
 $(document).bind('pageinit', function (event) {
    // $.mobile.hashListeningEnabled = false;
 });*/
+
+$(document).on('pageshow', '#show_message', function (event) {
+    polaroidMessageFontSize($('#photo_message textarea'), $('#photo_message textarea').val().length);
+});
 
 $(document).on('pageshow', function (event) {
     $('.image_upload').on('click', function () {
         $('input[type="file"]').trigger('click');
         return false;
     });
+
+    $("#message_body").on('change keydown paste input', function(){
+
+        // Display the characters remaining if there are only < 10 remaining
+        if($(this).val().length > MAX_MSG_LENGTH) {
+            $(this).val($(this).val().substr(0, MAX_MSG_LENGTH));
+        }
+        if ((MAX_MSG_LENGTH - $(this).val().length) < 10)
+            $('#chars-remaining').html((MAX_MSG_LENGTH - $(this).val().length) + ' chars remaining');
+        else
+            $('#chars-remaining').html('');
+
+        polaroidMessageFontSize($(this), $(this).val().length);
+    });
+
+
+  //  $('#message_body').on('keyup', function()
+   // {
+    //    $(this).fitText(1.0, { minFontSize: '12px', maxFontSize: '60px', outerContainerSize: 280 });
+  //  });
 
     $('input[type="file"]').on('change', function (e) {
         e.preventDefault();

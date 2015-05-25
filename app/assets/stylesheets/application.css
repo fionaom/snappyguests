@@ -11,5 +11,6 @@
  * file per style scope.
  *
  *= require_directory .
+ *= require shared/polaroid
  *= require_self
  */

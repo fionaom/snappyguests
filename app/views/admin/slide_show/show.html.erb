@@ -1,33 +1,15 @@
-<ul id="light-gallery" class="gallery">
-  <% @event.messages.order(:created_at).limit(10).each do |message| %>
-  <li data-html="#inlineHtml" data-sub-html="<div class='title'><%=message.body%></div>" data-src="<%= message.photo(:large).to_s %>">
-    <img src="<%= message.photo(:large).to_s %>" />
-  </li>
+<ul id="light-gallery" class="gallery" data-event-title="<%= @event.title %>">
+  <% @event.messages.order(:created_at).limit(100).each do |message| %>
+    <%= render 'message_list_item', :message => message %>
   <% end %>
 </ul>
 
 <% content_for :header do %>
     <script>
         $(document).ready(function() {
-            $('#light-gallery').lightGallery({
-                lang: {
-                    allPhotos: '<%= @event.title %>'
-                },
-                auto: true,
-                loop: true,
-                showThumbByDefault: true,
-                onOpen        : function(el) {
-                    // Do not show controls - hiding them from config doesn't work correctly
-                    $("#lg-action").hide();
-                    setTimeout(function () {
-                        $('#lg-gallery').removeClass('open');
-                    }, 800);
-                },
-                onSlideAfter   : function(el) {
-                    // Manually restart the autoplay since it is stopped when user interacts
-                  //  $(this).slide(3);
-                }
-            });
+            var lightGallery = initializeLightGallery();
+
+            load_new_messages_interval = setInterval(function(){ loadNewMessages();},load_new_messages_interval_time);
 
         });
     </script>

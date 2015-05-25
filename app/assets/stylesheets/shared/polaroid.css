@@ -1,0 +1,16 @@
+/*#polaroid_mask
+{
+    background-image: url("/images/polaroid-blank.png");
+    width: 100px;
+    height: 100px;
+}
+*/
+.polaroid_message {
+    font-family: 'Permanent Marker', cursive, Helvetica, sans-serif !important;
+    color: black !important;
+    text-align: center;
+    text-overflow: none;
+    overflow: hidden;
+    margin-top: 8px;
+    line-height: 30px;
+}

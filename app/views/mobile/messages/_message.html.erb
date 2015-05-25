@@ -8,7 +8,8 @@
         <%= image_tag "/images/polaroid-blank.png", :id => "polaroid_image" %>
         <div id="polaroid_mask">
           <div id="photo_message">
-            <%= f.input :body, label: false, as: :text, placeholder: 'Your message here' %>
+            <div id="chars-remaining"></div>
+            <%= f.input :body, label: false, as: :text, placeholder: 'Your message here', maxlength: 75, :input_html => {:class => "polaroid_message", :data => {:autogrow => false}} %>
           </div>
         </div>
       </div>

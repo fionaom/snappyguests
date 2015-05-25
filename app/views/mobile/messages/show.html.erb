@@ -12,7 +12,7 @@
       <%= image_tag "/images/polaroid-blank.png", :onload=>"fadeInImage(this)", :class=> "fadeInImage loading", :id => "polaroid_image" %>
       <div id="polaroid_mask">
         <div id="photo_message">
-            <%= text_area_tag :body, @message.body, label: false, as: :text, :disabled => true %>
+            <%= text_area_tag :body, @message.body, label: false, as: :text, :disabled => true, :class => "polaroid_message" %>
         </div>
       </div>
     </div>

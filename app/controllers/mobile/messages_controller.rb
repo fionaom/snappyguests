@@ -23,6 +23,10 @@ class Mobile::MessagesController < Mobile::ApplicationController
     end
   end
 
+  def show
+    @page_id = "show_message"
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -36,8 +40,6 @@ class Mobile::MessagesController < Mobile::ApplicationController
 
   def set_email
     session[:email] = params[:message][:email] if params[:message][:email]
-    p "Session"
-    p session[:email]
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

@@ -105,6 +105,7 @@
                             index = $children.index(this);
                             prevIndex = index;
                             setUp.init(index);
+                            setUp.restart(index);
                         });
                     }
                 });
@@ -367,7 +368,7 @@
                     if (!$this.isVideo(src, index)) {
                         setTimeout(function () {
                             if (!$slide.eq(index).hasClass('loaded')) {
-                                $slide.eq(index).prepend('<img class="object" src="' + src + '" />');
+                                $slide.eq(index).prepend('<div class="objectContainer"><img class="object" src="' + src + '" /></div>');
                                 $this.addHtml(index);
                                 $slide.eq(index).addClass('loaded');
                             }
@@ -543,7 +544,7 @@
                 }
             },
             restart: function(index) {
-                console.log(index);
+               // console.log(index);
                 var $this = this;
                 clearInterval(interval);
                 // Restart autoplay
