@@ -6,10 +6,10 @@
   <div role="main" class="ui-content" data-theme="d">
 
     <div id="photo_container" class="loadingImages">
-      <%= image_tag 'upload_your_photo.png', :onload=>"fadeInImage(this)", :class=> "fadeInImage loading", :id => "message_photo" %>
-      <%= image_tag "/images/polaroid-blank.png", :onload=>"fadeInImage(this)", :class=> "fadeInImage loading", :id => "polaroid_image" %>
       <div id="polaroid_mask" class="image_upload">
+        <%= image_tag 'upload_your_photo.png', :onload=>"fadeInImage(this)", :class=> "fadeInImage loading", :id => "message_photo" %>
       </div>
+      <%= image_tag "/images/polaroid.png", :onload=>"fadeInImage(this)", :class=> "fadeInImage loading", :id => "polaroid_image" %>
     </div>
 
   </div>

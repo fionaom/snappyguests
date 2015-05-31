@@ -1,21 +1,23 @@
 
 <!-- Start of second page -->
-<div data-role="page" data-theme="d">
+<div data-role="page" data-theme="c">
   <div data-role="header" data-theme="b" data-position="fixed">
     <%= image_tag("logo.png") %>
     <%= link_to 'Upload', "#{mobile_root_path}", :data => {'transition' => 'slide', 'prefetch' => true}, :class => 'ui-btn-right' %>
   </div>
 
   <div role="main" class="ui-content" data-theme="d">
+
     <div id="photo_container" class="loadingImages">
-      <%= image_tag @message.photo(:medium), :onload=>"fadeInImage(this)", :class=> "fadeInImage loading", :id => "message_photo" %>
-      <%= image_tag "/images/polaroid-blank.png", :onload=>"fadeInImage(this)", :class=> "fadeInImage loading", :id => "polaroid_image" %>
       <div id="polaroid_mask">
-        <div id="photo_message">
-            <%= text_area_tag :body, @message.body, label: false, as: :text, :disabled => true, :class => "polaroid_message" %>
-        </div>
+        <%= image_tag @message.photo(:medium), :onload=>"fadeInImage(this)", :class=> "fadeInImage loading", :id => "message_photo" %>
+      </div>
+      <%= image_tag "/images/polaroid.png", :onload=>"fadeInImage(this)", :class=> "fadeInImage loading", :id => "polaroid_image" %>
+      <div id="photo_message">
+        <%= text_area_tag :body, @message.body, label: false, as: :text, :disabled => true, :class => "polaroid_message" %>
       </div>
     </div>
+
   </div>
 
 </div>

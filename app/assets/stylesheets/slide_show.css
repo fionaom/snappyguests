@@ -9,7 +9,7 @@ body#slide_show .container
     height: 100%;
     position: absolute;
     margin: 0px;
-    background-image: url('/assets/wooden_bg.jpg');
+    background-image: url('/images/wooden_bg.jpg');
     overflow-y: auto;
 }
 

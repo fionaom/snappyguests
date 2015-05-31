@@ -1,10 +1,22 @@
-/*#polaroid_mask
-{
-    background-image: url("/images/polaroid-blank.png");
-    width: 100px;
-    height: 100px;
+div#photo_container {
+    height: 100%;
+    width: auto;
+    text-align: center;
+    vertical-align: middle;
 }
-*/
+
+div#photo_container img#polaroid_image
+{
+    height: 85%;
+    width: auto;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
 .polaroid_message {
     font-family: 'Permanent Marker', cursive, Helvetica, sans-serif !important;
     color: black !important;
@@ -13,4 +25,42 @@
     overflow: hidden;
     margin-top: 8px;
     line-height: 30px;
+}
+
+
+div#photo_container #polaroid_mask
+{
+    height: 100%;
+    width: auto;
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    right: 0px;
+    width: 72%;
+    height: 60%;
+    margin: auto auto;
+    margin-top: 100px;
+}
+
+div#photo_container #photo_message {
+    position: absolute;
+    bottom: 105px;
+    width: 66%;
+    font-family: inherit;
+    max-height: 60px;
+    font-size: 30px;
+    left: 0px;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#photo_container #photo_message textarea {
+    box-shadow: none;
+    background-color: transparent;
+    border: 0px;
+    padding: 0px;
+    height: 60px;
+    width: 100%;
+    overflow: hidden;
 }

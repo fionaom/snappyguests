@@ -4,13 +4,13 @@
     <div class="contents" style="display:none">
 
       <div id="photo_container">
-        <%= image_tag "", :id => "display_photo" %>
-        <%= image_tag "/images/polaroid-blank.png", :id => "polaroid_image" %>
         <div id="polaroid_mask">
-          <div id="photo_message">
-            <div id="chars-remaining"></div>
-            <%= f.input :body, label: false, as: :text, placeholder: 'Your message here', maxlength: 75, :input_html => {:class => "polaroid_message", :data => {:autogrow => false}} %>
-          </div>
+          <%= image_tag "", :id => "display_photo" %>
+        </div>
+        <%= image_tag "/images/polaroid.png", :id => "polaroid_image" %>
+        <div id="photo_message">
+          <div id="chars-remaining"></div>
+          <%= f.input :body, label: false, as: :text, placeholder: 'Your message here', maxlength: 75, :input_html => {:class => "polaroid_message", :data => {:autogrow => false}} %>
         </div>
       </div>
 
