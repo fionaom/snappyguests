@@ -10,6 +10,7 @@ body#slide_show .container
     position: absolute;
     margin: 0px;
     background-image: url('/assets/wooden_bg.jpg');
+    overflow-y: auto;
 }
 
 

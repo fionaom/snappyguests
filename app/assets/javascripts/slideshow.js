@@ -18,6 +18,11 @@ $(function() {
         $('#lg-gallery').addClass('open');
     });
 
+    $('body#slide_show').on("mouseover", "#lg-next, #lg-prev", function() {
+        clearTimeout(hideThumbnailsTimeout);
+        $('#lg-gallery').addClass('open');
+    });
+
     $('body#slide_show').on("mouseleave", ".lg-slide.current", function() {
         clearTimeout(hideThumbnailsTimeout);
         $('#lg-gallery').removeClass('open');
@@ -46,25 +51,34 @@ function bounceIn(messageId) {
     $(messageId).toggle( "bounce", { times: 1 }, "slow" );
 }
 
-function initializeLightGallery()
+function initializeLightGallery(selectMessageId)
 {
     $('#light-gallery li').unbind('click');
+
     lightGallery = $('#light-gallery').lightGallery({
     lang: {
         allPhotos: $('#light-gallery').data('event-title')
     },
-    mode: 'fade',
+    addClass: 'showThumbByDefault',
+    mode: 'slide',
     auto: true,
     loop: false,
     speed: 1000,
     showThumbByDefault: true,
+    hideControlOnEnd: true,
     onOpen        : function(el) {
         // Do not show controls - hiding them from config doesn't work correctly
-        $("#lg-action").hide();
+    //    $("#lg-action").hide();
         setTimeout(function () {
             $('#lg-gallery').removeClass('open');
         }, 800);
+    },
+    onFinishedInitializing: function(el)
+    {
+        console.log("Finished");
+       $(selectMessageId).trigger('click');
     }
 });
+
     return lightGallery;
 }

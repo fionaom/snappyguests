@@ -6,6 +6,7 @@
  * CUSTOM - Fiona - so autoplay will work when user clicks thumbnail
 
  =========================================================/**/
+var interval = false;
 ;
 (function ($) {
     "use strict";
@@ -60,6 +61,7 @@
                 dynamicEl: [],
                 //callbacks
 
+                onFinishedInitializing: function (plugin) {},
                 onOpen: function (plugin) {},
                 onSlideBefore: function (plugin) {},
                 onSlideAfter: function (plugin) {},
@@ -75,7 +77,7 @@
             isActive = false,
             lightGalleryOn = false,
             isTouch = document.createTouch !== undefined || ('ontouchstart' in window) || ('onmsgesturechange' in window) || navigator.msMaxTouchPoints,
-            $gallery, $galleryCont, $slider, $slide, $prev, $next, prevIndex, $thumb_cont, $thumb, windowWidth, interval, usingThumb = false,
+            $gallery, $galleryCont, $slider, $slide, $prev, $next, prevIndex, $thumb_cont, $thumb, windowWidth, usingThumb = false,
             aTiming = false,
             aSpeed = false;
         var settings = $.extend(true, {}, defaults, options);
@@ -103,16 +105,19 @@
                             e.preventDefault();
                             e.stopPropagation();
                             index = $children.index(this);
+                            console.log(index);
                             prevIndex = index;
                             setUp.init(index);
                             setUp.restart(index);
                         });
                     }
+                    settings.onFinishedInitializing.call(this, plugin);
                 });
             }
         };
         var setUp = {
             init: function () {
+                clearInterval(interval);
                 isActive = true;
                 this.structure();
                 this.getWidth();
@@ -141,13 +146,15 @@
                 }, 50);
             },
             structure: function () {
-                $('body').append('<div id="lg-outer" class="' + settings.addClass + '"><div id="lg-gallery"><div id="lg-slider"></div><a id="lg-close" class="close"></a></div></div>').addClass('light-gallery');
+                if (!$('body').find('#lg-outer').length)
+                    $('body').append('<div id="lg-outer" class="' + settings.addClass + '"><div id="lg-gallery"><div id="lg-slider"></div><a id="lg-close" class="close"></a></div></div>').addClass('light-gallery');
                 $galleryCont = $('#lg-outer');
                 $gallery = $('#lg-gallery');
                 if (settings.showAfterLoad === true) {
                     $gallery.addClass('show-after-load');
                 }
                 $slider = $gallery.find('#lg-slider');
+                $slider.html('');
                 var slideList = '';
                 if (settings.dynamic) {
                     for (var i = 0; i < settings.dynamicEl.length; i++) {
@@ -434,7 +441,9 @@
                     if (!settings.showThumbByDefault) {
                         $close = '<span class="close ib"><i class="bUi-iCn-rMv-16" aria-hidden="true"></i></span>';
                     }
-                    $gallery.append('<div class="thumb-cont"><div class="thumb-info">' + $close + '</div><div class="thumb-inner"></div></div>');
+                    if (!$gallery.find('.thumb-cont').length)
+                        $gallery.append('<div class="thumb-cont"><div class="thumb-info">' + $close + '</div><div class="thumb-inner"></div></div>');
+                    $('.thumb-inner').html('');
                     $thumb_cont = $gallery.find('.thumb-cont');
                     $prev.after('<a class="cl-thumb"></a>');
                     $prev.parent().addClass('has-thumb');
@@ -492,7 +501,9 @@
                         $this.restart(index);
 
                     });
-                    thumbInfo.prepend('<span class="ib count">' + settings.lang.allPhotos + ' (' + $thumb.length + ')</span>');
+                    if (!thumbInfo.find('.ib.count').length)
+                        thumbInfo.prepend('<span class="ib count"></span>');
+                    $('.ib.count').html(settings.lang.allPhotos + ' (' + $thumb.length + ')');
                     if (settings.showThumbByDefault) {
                         $gallery.addClass('open');
                     }
@@ -532,7 +543,8 @@
             slideTo: function () {
                 var $this = this;
                 if (settings.controls === true && $children.length > 1) {
-                    $gallery.append('<div id="lg-action"><a id="lg-prev"></a><a id="lg-next"></a></div>');
+                    if (!$gallery.find('#lg-action').length)
+                        $gallery.append('<div id="lg-action"><a id="lg-prev"></a><a id="lg-next"></a></div>');
                     $prev = $gallery.find('#lg-prev');
                     $next = $gallery.find('#lg-next');
                     $prev.bind('click', function () {
@@ -544,11 +556,11 @@
                 }
             },
             restart: function(index) {
-               // console.log(index);
+                console.log(index);
                 var $this = this;
                 clearInterval(interval);
                 // Restart autoplay
-                if (settings.auto === true) {
+                if (typeof(index) != 'undefined' && settings.auto === true) {
                     interval = setInterval(function () {
                         if (index + 1 < $children.length) {
                             index = index;

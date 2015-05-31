@@ -654,6 +654,10 @@ left: 0;
 .showThumbByDefault #lg-action a#lg-next {
     right: 17px;
 }
+.showThumbByDefault #lg-action a#lg-prev.disabled,
+.showThumbByDefault #lg-action a#lg-next.disabled {
+    display: none !important;
+}
 
 #lg-slider img {
     max-height: 400px;
@@ -723,4 +727,12 @@ left: 0;
 #lg-slider .lg-slide img {
     max-height: 74%;
     margin-top: 37px;
+}
+
+#lg-gallery #lg-action {
+    display: none;
+}
+
+#lg-gallery.open #lg-action {
+    display: block;
 }

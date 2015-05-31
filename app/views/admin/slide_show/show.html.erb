@@ -7,7 +7,7 @@
 <% content_for :header do %>
     <script>
         $(document).ready(function() {
-            var lightGallery = initializeLightGallery();
+            var lightGallery = initializeLightGallery(0);
 
             load_new_messages_interval = setInterval(function(){ loadNewMessages();},load_new_messages_interval_time);
 
