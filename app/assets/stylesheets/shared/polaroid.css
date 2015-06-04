@@ -1,4 +1,5 @@
-div#photo_container {
+
+/*div#photo_container {
     height: 100%;
     width: auto;
     text-align: center;
@@ -63,4 +64,52 @@ div#photo_container #photo_message textarea {
     height: 60px;
     width: 100%;
     overflow: hidden;
+}*/
+
+div#polaroid_container {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+}
+
+div#polaroid_container #maintain_aspect_ratio {
+   /* width: 80%;
+    height: 0px;
+    padding-bottom: 60%; */
+    height: 80%;
+    width: 0px;
+    padding-left: 92%;
+    display: inline-block;
+    position: relative;
+    max-width: 750px;
+}
+
+div#polaroid_container #polaroid_bg {
+    background-image: url('/images/polaroid.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+   /* box-shadow: 0px 1px 2px #111; */
+   /* background-color: white; */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+div#polaroid_container #photo {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+div#polaroid_container #photo #black_bg {
+    background-color: black;
+    width: 70%;
+    height: 75%;
+    margin: 58px auto;
+
 }

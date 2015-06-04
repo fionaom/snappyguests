@@ -5,11 +5,12 @@
 
   <div role="main" class="ui-content" data-theme="d">
 
-    <div id="photo_container" class="loadingImages">
-      <div id="polaroid_mask" class="image_upload">
-        <%= image_tag 'upload_your_photo.png', :onload=>"fadeInImage(this)", :class=> "fadeInImage loading", :id => "message_photo" %>
-      </div>
-      <%= image_tag "/images/polaroid.png", :onload=>"fadeInImage(this)", :class=> "fadeInImage loading", :id => "polaroid_image" %>
+    <!-- Maintain an aspect ratio of width x height (9:10), but do not exceed width of 750px -->
+    <div id="polaroid_container">
+        <div id="maintain_aspect_ratio">
+          <div id="photo"><div id="black_bg"></div></div>
+          <div id="polaroid_bg"></div>
+        </div>
     </div>
 
   </div>

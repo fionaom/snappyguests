@@ -138,9 +138,9 @@ function changeStep(from, to, direction)
 
 function fadeInImage(imageContainer) {
     $(imageContainer).removeClass('loading');
-    if ($(imageContainer).parents('#photo_container').find('.fadeInImage.loading').length == 0) {
-        $(imageContainer).parents('#photo_container').removeClass('loadingImages');
-        $(imageContainer).parents('#photo_container').find('.fadeInImage').css({opacity: 1});
+    if ($(imageContainer).parents('#polaroid_container').find('.fadeInImage.loading').length == 0) {
+        $(imageContainer).parents('#polaroid_container').removeClass('loadingImages');
+        $(imageContainer).parents('#polaroid_container').find('.fadeInImage').css({opacity: 1});
     }
 }
 

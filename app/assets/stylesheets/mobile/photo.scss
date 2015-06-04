@@ -1,3 +1,14 @@
+body#show_message .ui-page
+{
+  height: 100%;
+  overflow: hidden;
+}
+
+body#show_message
+{
+  overflow-y: hidden;
+}
+
 .fadeInImage
 {
   opacity: 0;

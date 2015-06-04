@@ -8,6 +8,19 @@
 
   <div role="main" class="ui-content" data-theme="d">
 
+    <!-- Maintain an aspect ratio of width x height (9:10), but do not exceed width of 750px -->
+    <div id="polaroid_container" class="loadingImages">
+      <div id="maintain_aspect_ratio">
+        <div id="photo">
+          <div id="black_bg">
+            <%= image_tag @message.photo(:medium), :onload=>"fadeInImage(this)", :class=> "fadeInImage loading", :id => "message_photo" %>
+          </div>
+        </div>
+        <div id="polaroid_bg"></div>
+      </div>
+    </div>
+
+    <!--
     <div id="photo_container" class="loadingImages">
       <div id="polaroid_mask">
         <%= image_tag @message.photo(:medium), :onload=>"fadeInImage(this)", :class=> "fadeInImage loading", :id => "message_photo" %>
@@ -17,6 +30,8 @@
         <%= text_area_tag :body, @message.body, label: false, as: :text, :disabled => true, :class => "polaroid_message" %>
       </div>
     </div>
+
+    -->
 
   </div>
 
