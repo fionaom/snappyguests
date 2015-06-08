@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # Devise Routes
-  devise_for :users
+  devise_for :users, controllers: { sessions: "users/sessions" }
 
   # User Admin Routes
   constraints(lambda { |request| !MobileSubdomain.matches?(request) }) do
