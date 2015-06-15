@@ -13,10 +13,14 @@
       <div id="maintain_aspect_ratio">
         <div id="photo">
           <div id="black_bg">
-            <%= image_tag @message.photo(:medium), :onload=>"fadeInImage(this)", :class=> "fadeInImage loading", :id => "message_photo" %>
+            <%= image_tag @message.photo(:large), :onload=>"fadeInImage(this),aspectFit(this)", :class=> "fadeInImage loading", :id => "display_photo" %>
           </div>
         </div>
-        <div id="polaroid_bg"></div>
+        <div id="polaroid_bg">
+            <div id="message">
+              <div><%=@message.body%></div>
+            </div>
+        </div>
       </div>
     </div>
 

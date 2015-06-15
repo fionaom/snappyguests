@@ -96,6 +96,12 @@ div#polaroid_container #polaroid_bg {
     bottom: 0;
     right: 0;
     left: 0;
+
+    min-width: 200px;
+    max-width: 400px;
+    max-height: 430px;
+    margin: 0 auto;
+
 }
 
 div#polaroid_container #photo {
@@ -104,6 +110,13 @@ div#polaroid_container #photo {
     bottom: 0;
     right: 0;
     left: 0;
+
+
+    min-width: 200px;
+    max-width: 400px;
+    max-height: 430px;
+    margin: 0 auto;
+
 }
 
 div#polaroid_container #photo #black_bg {
@@ -112,4 +125,77 @@ div#polaroid_container #photo #black_bg {
     height: 75%;
     margin: 58px auto;
 
+}
+
+
+div#polaroid_container div#message {
+    /*
+    position: absolute;
+    bottom: 25px;
+    left: 50px;
+    border: 0px;
+    padding: 0px;
+    height: 68px;
+    width: 72%;
+    overflow: hidden;
+    font-family: 'Permanent Marker', cursive, Helvetica, sans-serif !important;
+    color: black !important;
+    text-align: center;
+    text-overflow: none;
+    overflow: hidden;
+    margin-top: 8px;
+    line-height: 30px;*/
+    font-family: 'Permanent Marker', cursive, Helvetica, sans-serif !important;
+    color: black !important;
+    text-align: center;
+    position: absolute;
+    bottom: 25px;
+    left: 50px;
+    border: 0px;
+    padding: 0px;
+    height: 68px;
+    width: 72%;
+}
+
+div#polaroid_container div#message div:first-of-type {
+    margin-top: 5px;
+}
+
+div#polaroid_container div#message div#chars-remaining {
+    font-size: 10px;
+    float: right;
+    font-family: Helvetica, sans-serif !important;
+    position: absolute;
+    right: 0px;
+    bottom: -14px;
+    color: red;
+}
+
+div#polaroid_container div#message textarea {
+  /*  box-shadow: none;
+    background-color: transparent;
+    border: 0px;
+    padding: 4px;
+    height: 68px;
+    overflow: hidden;
+    border-radius: 0px;
+    font-family: 'Permanent Marker', cursive, Helvetica, sans-serif !important;
+    color: black !important;
+    text-align: center;
+    bottom: -8px;
+    position: absolute;
+    right: 0px;
+    border: 1px solid red;*/
+    border: 1px solid red;
+    box-shadow: none;
+    border-radius: 0px;
+    padding: 0px;
+    overflow: hidden;
+    height: 60px;
+    border: 0px;
+    background-color: none;
+    background-color: transparent;
+    font-family: 'Permanent Marker', cursive, Helvetica, sans-serif !important;
+    color: black !important;
+    text-align: center;
 }

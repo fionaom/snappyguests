@@ -1,12 +1,13 @@
 function polaroidMessageFontSize(textField, textLength)
 {
+    console.log(textLength)
     if (textLength < 18) {
         textField.css('font-size', '30px');
         textField.css('line-height', '30px');
     }
     else if (textLength >= 52) {
-        textField.css('font-size', '14px');
-        textField.css('line-height', '14px');
+        textField.css('font-size', '18px');
+        textField.css('line-height', '18px');
     }
     else if (textLength >= 18) {
         textField.css('font-size', '20px');

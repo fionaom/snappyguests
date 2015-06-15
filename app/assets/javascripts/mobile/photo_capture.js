@@ -1,5 +1,5 @@
-var MAX_WIDTH = 281;
-var MAX_HEIGHT = 220;
+var MAX_WIDTH = 260;
+var MAX_HEIGHT = 280;
 var MAX_MSG_LENGTH = 75;
 /*
 $(document).bind('pageinit', function (event) {
@@ -7,7 +7,7 @@ $(document).bind('pageinit', function (event) {
 });*/
 
 $(document).on('pageshow', '#show_message', function (event) {
-    polaroidMessageFontSize($('#photo_message textarea'), $('#photo_message textarea').val().length);
+    polaroidMessageFontSize($('#polaroid_bg #message'), $('#polaroid_bg #message').html().length);
 });
 
 $(document).on('pageshow', function (event) {
@@ -45,32 +45,9 @@ $(document).on('pageshow', function (event) {
             image.src = e.target.result;
 
             image.onload = function() {
+
                 var snapshot = $('#display_photo');
-
-                var maxWidth = MAX_WIDTH; // Max width for the image
-                var maxHeight = MAX_HEIGHT;    // Max height for the image
-                var ratio = 0;  // Used for aspect ratio
-                var width = this.width;    // Current image width
-                var height = this.height;  // Current image height
-
-                if (width > height)
-                {
-                    if(width > maxWidth)
-                    {
-                        ratio = maxWidth / width;   // get ratio for scaling image
-                    }
-                }
-                else
-                {
-                    if(height > maxHeight)
-                    {
-                        ratio = maxHeight / height;   // get ratio for scaling image
-                    }
-                }
-                height = height * ratio;    // Reset height to match scaled image
-                width = width * ratio;    // Reset width to match scaled image
-                snapshot.css("width", width); // Set new width
-                snapshot.css("height", height);  // Scale height based on ratio
+                scaleImage(snapshot, this.width, this.height);
 
                 snapshot.attr('src', e.target.result).show();
                 changeStep('.upload_step', '.message_step', 'fwd');
@@ -130,10 +107,41 @@ function changeStep(from, to, direction)
 
     if (to == '.message_step')
     {
+        polaroidMessageFontSize($('#polaroid_bg #message'), $('#polaroid_bg #message').val().length);
+
         setTimeout(function(){
             $('#message_body').focus();
         },500);
     }
+}
+
+function scaleImage(imageContainer, imageOriginalWidth, imageOriginalHeight) {
+    var snapshot = $(imageContainer);
+
+    var maxWidth = MAX_WIDTH; // Max width for the image
+    var maxHeight = MAX_HEIGHT;    // Max height for the image
+    var ratio = 1;  // Used for aspect ratio
+    var width = imageOriginalWidth;    // Current image width
+    var height = imageOriginalHeight;  // Current image height
+
+    if (width > height)
+    {
+        if(width > maxWidth)
+        {
+            ratio = maxWidth / width;   // get ratio for scaling image
+        }
+    }
+    else
+    {
+        if(height > maxHeight)
+        {
+            ratio = maxHeight / height;   // get ratio for scaling image
+        }
+    }
+    height = height * ratio;    // Reset height to match scaled image
+    width = width * ratio;    // Reset width to match scaled image
+    snapshot.css("width", width); // Set new width
+    snapshot.css("height", height);  // Scale height based on ratio
 }
 
 function fadeInImage(imageContainer) {
@@ -142,6 +150,11 @@ function fadeInImage(imageContainer) {
         $(imageContainer).parents('#polaroid_container').removeClass('loadingImages');
         $(imageContainer).parents('#polaroid_container').find('.fadeInImage').css({opacity: 1});
     }
+}
+
+function aspectFit(imageContainer) {
+
+    scaleImage(imageContainer, $(imageContainer).width(), $(imageContainer).height());
 }
 
 $(function() {
