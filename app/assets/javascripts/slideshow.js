@@ -55,6 +55,13 @@ function initializeLightGallery(selectMessageId)
 {
     $('#light-gallery li').unbind('click');
 
+  //  if (lightGallery)
+   // {
+       // current_index = lightGallery.getIndex();
+     //   console.log("HI");
+    //    console.log(current_index);
+    //}
+
     lightGallery = $('#light-gallery').lightGallery({
     lang: {
         allPhotos: $('#light-gallery').data('event-title')
@@ -62,7 +69,7 @@ function initializeLightGallery(selectMessageId)
     addClass: 'showThumbByDefault',
     mode: 'slide',
     auto: true,
-    loop: false,
+    loop: true,
     speed: 1000,
     showThumbByDefault: true,
     hideControlOnEnd: true,
@@ -75,8 +82,12 @@ function initializeLightGallery(selectMessageId)
     },
     onFinishedInitializing: function(el)
     {
-        console.log("Finished");
-       $(selectMessageId).trigger('click');
+
+       // console.log();
+        // If we have already gone through all photos from start to finish, then immediately go to this photo
+       // if ($('#lg-gallery').hasClass('alreadyLooped'))
+      //  console.log($('#lg-gallery').data('last_seen_message_id'));
+        //   $(selectMessageId).trigger('click');
     }
 });
 

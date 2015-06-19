@@ -371,11 +371,13 @@ var interval = false;
                     time = settings.speed + 400;
                 }
 
+                var message = $children.eq(index).attr('data-message');
+
                 if (typeof src !== 'undefined' && src !== '') {
                     if (!$this.isVideo(src, index)) {
                         setTimeout(function () {
                             if (!$slide.eq(index).hasClass('loaded')) {
-                                $slide.eq(index).prepend('<div class="objectContainer"><img class="object" src="' + src + '" /></div>');
+                                $slide.eq(index).prepend('<div id="polaroid_container"><div id="maintain_aspect_ratio"><div id="photo"><div id="black_bg"><div class="objectContainer"><img class="object" src="' + src + '" /></div></div></div><div id="polaroid_bg"><div id="message"><div>'+message+'</div></div></div></div></div>');
                                 $this.addHtml(index);
                                 $slide.eq(index).addClass('loaded');
                             }
@@ -739,6 +741,14 @@ var interval = false;
                     $thumb.removeClass('active');
                     $thumb.eq(index).addClass('active');
                 }
+
+                // Have we reached the end?
+                if (index === parseInt($children.length) - 1)
+                {
+                    $('#slide_show').addClass("looped");
+                    console.log("reached end");
+                }
+
                 if (settings.controls && settings.hideControlOnEnd && settings.loop === false && $children.length > 1) {
                     var l = $children.length;
                     l = parseInt(l) - 1;

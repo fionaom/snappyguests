@@ -694,6 +694,8 @@ left: 0;
 {
     height: 0%;
 }
+
+/*
 #lg-slider .objectContainer
 {
     position: relative;
@@ -705,7 +707,7 @@ left: 0;
     width: 80%;
     height: 80%;
     background-color: #000;
-}
+}*/
 
 #lg-slider {
     background-image: url('/assets/wooden_bg.jpg');

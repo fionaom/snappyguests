@@ -2,7 +2,6 @@ clearInterval(load_new_messages_interval);
 //console.log("Children: "+ lightGallery.children().count());
 <% if !@new_messages.empty? %>
    <% @new_messages.each do |message| %>
-      console.log("Adding new child");
       $("<%= escape_javascript(render 'message_list_item', :message => message) %>").appendTo("#light-gallery");
    <% end %>
    lightGallery = initializeLightGallery("#light-gallery li#message_"+<%=@new_messages.first.id%>);
