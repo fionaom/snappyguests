@@ -11,4 +11,13 @@
     <%= f.input :email, label: false, input_html: {'data-clear-btn' => true}, placeholder: 'name@email.com', type: :email %>
   </div>
 
+  <div data-theme="c" class="ui-body ui-body-c ui-corner-all margin contents" style="display:none">
+    <% if session[:event_id].present? %>
+        Using previously entered event ID
+    <% else %>
+        Since you are not signed in, please enter the ID of your event
+    <% end %>
+    <%= f.input :event_id, label: false, input_html: {'data-clear-btn' => true}, placeholder: '******', type: :event_id %>
+  </div>
+
 </div><!-- /content -->

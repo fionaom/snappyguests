@@ -2,52 +2,42 @@
 div#polaroid_container {
     width: 100%;
     height: 100%;
-    text-align: center;
     position: absolute;
+    margin: 0% 0;
 }
 
-div#polaroid_container #maintain_aspect_ratio {
-    height: 80%;
-    width: 0px;
-    padding-left: 92%;
-    display: inline-block;
-    position: relative;
-    max-width: 750px;
-}
-
-div#polaroid_container #polaroid_bg, #lg-slider .objectContainer {
+div#polaroid_container #polaroid_bg {
     background-image: url('/images/polaroid.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    top: 0; bottom: 0; right: 0; left: 3%;
+    height: 80vmin;
+    width: 80vmin;
     min-width: 200px;
     max-width: 700px;
     max-height: 730px;
     margin: 0 auto;
+    z-index:0;
 }
 
 div#polaroid_container #photo {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    top: 0; bottom: 0; right: 0; left: 0;
     min-width: 200px;
     max-width: 700px;
     max-height: 730px;
     margin: 0 auto;
-
+    border: 1px solid green;
+    z-index: 2;
 }
 
-div#polaroid_container #photo #black_bg {
+div#polaroid_container #black_bg {
     background-color: black;
-    width: 70%;
-    height: 75%;
-    margin: 58px auto;
+    width: 53vmin;
+    height: 52vmin;
+    margin: 11% auto;
+    left: -5%;
 }
 
 
@@ -94,6 +84,21 @@ div#polaroid_container div#message textarea {
 }
 
 /* Admin slide show */
+div.objectContainer, #lg-slider {
+    background-image: url('/images/polaroid.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    min-width: 200px;
+    max-width: 700px;
+    max-height: 730px;
+    margin: 0 auto;
+}
+
 div.objectContainer img.object {
     height: 64% !important;
     margin-top: 75px !important;
