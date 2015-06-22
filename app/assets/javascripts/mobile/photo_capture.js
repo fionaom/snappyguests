@@ -131,6 +131,7 @@ function scaleImage(image_id, imageOriginalWidth, imageOriginalHeight) {
         parent_height = $("#display_photo").parent("div").height();
         height_percent = 100* (height / parent_height);
         imageID.css("height", height_percent+"%");
+        imageID.css("margin-top", "30%");
     }
     else {
         ratio = maxHeight / height;   // get ratio for scaling image
@@ -139,6 +140,7 @@ function scaleImage(image_id, imageOriginalWidth, imageOriginalHeight) {
         parent_width = $("#display_photo").parent("div").width();
         width_percent = 100* (width / parent_width);
         imageID.css("width", width_percent+"%");
+        imageID.css("margin-top", "0%");
     }
 }
 
