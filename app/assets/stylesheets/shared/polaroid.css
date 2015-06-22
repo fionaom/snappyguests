@@ -85,6 +85,7 @@ div#polaroid_container div#message textarea {
 }
 
 /* Admin slide show */
+/*
 div.objectContainer, #lg-slider {
     background-image: url('/images/polaroid.png');
     background-repeat: no-repeat;
@@ -99,10 +100,10 @@ div.objectContainer, #lg-slider {
     max-height: 730px;
     margin: 0 auto;
 }
-
 div.objectContainer img.object {
     height: 64% !important;
     margin-top: 75px !important;
     max-width: 520px !important;
     max-height: 430px !important;
 }
+*/

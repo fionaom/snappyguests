@@ -42,11 +42,15 @@ function loadNewMessages()
 
 function bounceIn(messageId) {
     // Add a random rotation
+    var direction_random = Math.floor((Math.random() * 2) + 1); // Random number between 1 and 2
+    var direction = 1;
+    if (direction_random == 2)
+       direction *= -1;
     var random = Math.floor((Math.random() * 4) + 1); // Random number between 1 and 4
 
-    $(messageId).css('-ms-transform', 'rotate('+random*4+'deg)');
-    $(messageId).css('-webkit-transform', 'rotate('+random*4+'deg)');
-    $(messageId).css('transform', 'rotate('+random*4+'deg)');
+    $(messageId).css('-ms-transform', 'rotate('+direction*random*4+'deg)');
+    $(messageId).css('-webkit-transform', 'rotate('+direction*random*4+'deg)');
+    $(messageId).css('transform', 'rotate('+direction*random*4+'deg)');
 
     $(messageId).toggle( "bounce", { times: 1 }, "slow" );
 }

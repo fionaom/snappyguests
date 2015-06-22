@@ -29,8 +29,8 @@ body#slide_show .footer .container
     height: 100px;
     display: block;
     float: left;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    margin-right: 30px;
+    margin-bottom: 30px;
 }
 
 .gallery li img {
