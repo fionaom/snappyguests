@@ -115,8 +115,8 @@ function changeStep(from, to, direction)
     }
 }
 
-function scaleImage(imageContainer, imageOriginalWidth, imageOriginalHeight) {
-    var snapshot = $(imageContainer);
+function scaleImage(image_id, imageOriginalWidth, imageOriginalHeight) {
+    var imageID = $(image_id);
 
     var maxWidth = MAX_WIDTH; // Max width for the image
     var maxHeight = MAX_HEIGHT;    // Max height for the image
@@ -124,24 +124,22 @@ function scaleImage(imageContainer, imageOriginalWidth, imageOriginalHeight) {
     var width = imageOriginalWidth;    // Current image width
     var height = imageOriginalHeight;  // Current image height
 
-    if (width > height)
-    {
-        if(width > maxWidth)
-        {
-            ratio = maxWidth / width;   // get ratio for scaling image
-        }
+    if (width > height) {
+        ratio = maxWidth / width;   // get ratio for scaling image
+        imageID.css("width", "100%");
+        height = height * ratio;
+        parent_height = $("#display_photo").parent("div").height();
+        height_percent = 100* (height / parent_height);
+        imageID.css("height", height_percent+"%");
     }
-    else
-    {
-        if(height > maxHeight)
-        {
-            ratio = maxHeight / height;   // get ratio for scaling image
-        }
+    else {
+        ratio = maxHeight / height;   // get ratio for scaling image
+        imageID.css("height", "100%");
+        width = width * ratio;
+        parent_width = $("#display_photo").parent("div").width();
+        width_percent = 100* (width / parent_width);
+        imageID.css("width", width_percent+"%");
     }
-    height = height * ratio;    // Reset height to match scaled image
-    width = width * ratio;    // Reset width to match scaled image
-    snapshot.css("width", width); // Set new width
-    snapshot.css("height", height);  // Scale height based on ratio
 }
 
 function fadeInImage(imageContainer) {
