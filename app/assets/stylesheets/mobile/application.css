@@ -50,3 +50,8 @@ label.error {
     color: red;
     position: absolute;
 }
+
+/* Custom */
+.ui-page-theme-w {
+    background: url('/images/wooden_bg.jpg');
+}
