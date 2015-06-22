@@ -132,7 +132,8 @@ function scaleImage(image_id, imageOriginalWidth, imageOriginalHeight) {
         height_percent = 100* (height / parent_height);
         imageID.css("height", height_percent+"%");
         top_gap = 0.5 * (parent_height-height);
-        imageID.css("margin-top", top_gap);
+        top_gap_percent = 100* (top_gap / parent_height);
+        imageID.css("margin-top", top_gap_percent+"%");
     }
     else {
         ratio = maxHeight / height;   // get ratio for scaling image
