@@ -40,22 +40,25 @@ div#polaroid_container #black_bg {
     background-color: black;
     width: 53vmin;
     height: 53vmin;
-    margin: 11.6vmin auto;
+    margin-top: 11.6vmin;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 
-div#polaroid_container div#message, div#lg-slider div#message {
+div#polaroid_container #photo div#message, div#lg-slider div#message {
     font-family: 'Permanent Marker', cursive, Helvetica, sans-serif !important;
     color: black !important;
     text-align: center;
-    position: absolute;
-    bottom: 25px;
-    left: 50px;
-    border: 0px;
+    position: relative;
+    margin-top: 1vmin;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0px;
-    height: 68px;
-    width: 72%;
+    height: 10vmin;
+    width: 55vmin;
     white-space: normal;
+    font-size: 4vmin;
 }
 
 div#polaroid_container div#message div:first-of-type {
@@ -63,16 +66,21 @@ div#polaroid_container div#message div:first-of-type {
 }
 
 div#polaroid_container div#message div#chars-remaining {
-    font-size: 10px;
+    display: none;
+    font-size: 2vmin;
     float: right;
     font-family: Helvetica, sans-serif !important;
     position: absolute;
     right: 0px;
-    bottom: -14px;
+    bottom: -8vmin;
     color: red;
+    background: white;
+    border: 1px solid red;
+    border-radius: 2px;
+    padding: 1vmin 2vmin;
 }
 
-div#polaroid_container div#message textarea {
+div#polaroid_container div#message .polaroid_message {
     box-shadow: none;
     border-radius: 0px;
     padding: 0px;
@@ -84,6 +92,7 @@ div#polaroid_container div#message textarea {
     font-family: 'Permanent Marker', cursive, Helvetica, sans-serif !important;
     color: black !important;
     text-align: center;
+    font-size: 4vmin;
 }
 
 /* Admin slide show */

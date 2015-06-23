@@ -16,17 +16,22 @@ $(document).on('pageshow', function (event) {
         return false;
     });
 
-    $("#message_body").on('change keydown paste input', function(){
+    $("#message_body").on('change keydown paste input', function() {
+
+        var charsRemaining = $('#chars-remaining');
 
         // Display the characters remaining if there are only < 10 remaining
-        if($(this).val().length > MAX_MSG_LENGTH) {
+        if ($(this).val().length > MAX_MSG_LENGTH) {
             $(this).val($(this).val().substr(0, MAX_MSG_LENGTH));
         }
-        if ((MAX_MSG_LENGTH - $(this).val().length) < 10)
+        if ((MAX_MSG_LENGTH - $(this).val().length) < 10) {
             $('#chars-remaining').html((MAX_MSG_LENGTH - $(this).val().length) + ' chars remaining');
-        else
+            charsRemaining.css("display", "block");
+        }
+        else {
             $('#chars-remaining').html('');
-
+            charsRemaining.css("display", "none");
+        }
         polaroidMessageFontSize($(this), $(this).val().length);
     });
 
@@ -124,22 +129,24 @@ function scaleImage(image_id, imageOriginalWidth, imageOriginalHeight) {
     var width = imageOriginalWidth;    // Current image width
     var height = imageOriginalHeight;  // Current image height
 
+    var parent_width = $("#display_photo").parent("div").width();
+    var parent_height = $("#display_photo").parent("div").height();
+
     if (width > height) {
-        ratio = maxWidth / width;   // get ratio for scaling image
+        ratio = parent_width / width;   // get ratio for scaling image
         imageID.css("width", "100%");
         height = height * ratio;
-        parent_height = $("#display_photo").parent("div").height();
+
         height_percent = 100* (height / parent_height);
         imageID.css("height", height_percent+"%");
-        top_gap = 0.5 * (parent_height-height);
+        top_gap = 0.5 * (parent_height - height);
         top_gap_percent = 100* (top_gap / parent_height);
         imageID.css("margin-top", top_gap_percent+"%");
     }
     else {
-        ratio = maxHeight / height;   // get ratio for scaling image
+        ratio = parent_height / height;   // get ratio for scaling image
         imageID.css("height", "100%");
         width = width * ratio;
-        parent_width = $("#display_photo").parent("div").width();
         width_percent = 100* (width / parent_width);
         imageID.css("width", width_percent+"%");
         imageID.css("margin-top", "0");
