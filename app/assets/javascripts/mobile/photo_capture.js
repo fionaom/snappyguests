@@ -122,9 +122,7 @@ function changeStep(from, to, direction)
 
 function scaleImage(image_id, imageOriginalWidth, imageOriginalHeight) {
     var imageID = $(image_id);
-
-    var maxWidth = MAX_WIDTH; // Max width for the image
-    var maxHeight = MAX_HEIGHT;    // Max height for the image
+    
     var ratio = 1;  // Used for aspect ratio
     var width = imageOriginalWidth;    // Current image width
     var height = imageOriginalHeight;  // Current image height
