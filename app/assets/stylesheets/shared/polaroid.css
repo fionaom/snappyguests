@@ -93,6 +93,7 @@ div#polaroid_container div#message .polaroid_message {
     color: black !important;
     text-align: center;
     font-size: 4vmin;
+    word-wrap: break-word;
 }
 
 /* Admin slide show */

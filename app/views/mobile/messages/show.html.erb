@@ -1,6 +1,6 @@
 
 <!-- Start of second page -->
-<div data-role="page" data-theme="w">
+<div id="show_message" data-role="page" data-theme="w">
   <div data-role="header" data-theme="b" data-position="fixed">
     <%= image_tag("logo.png") %>
     <%= link_to 'Upload', "#{mobile_root_path}", :data => {'transition' => 'slide', 'prefetch' => true}, :class => 'ui-btn-right' %>
@@ -10,17 +10,13 @@
 
     <!-- Maintain an aspect ratio of width x height (9:10), but do not exceed width of 750px -->
     <div id="polaroid_container" class="loadingImages">
-      <div id="maintain_aspect_ratio">
         <div id="photo">
           <div id="black_bg">
             <%= image_tag @message.photo(:large), :onload=>"fadeInImage(this),aspectFit(this)", :class=> "fadeInImage loading", :id => "display_photo" %>
           </div>
+          <div id="message"> <div class="polaroid_message"><%=@message.body%></div> </div>
         </div>
-        <div id="polaroid_bg">
-            <div id="message">
-              <div><%=@message.body%></div>
-            </div>
-        </div>
+        <div id="polaroid_bg">&nbsp; </div>
       </div>
     </div>
 

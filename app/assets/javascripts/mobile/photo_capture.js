@@ -7,7 +7,7 @@ $(document).bind('pageinit', function (event) {
 });*/
 
 $(document).on('pageshow', '#show_message', function (event) {
-    polaroidMessageFontSize($('#polaroid_bg #message'), $('#polaroid_bg #message').html().length);
+    polaroidMessageFontSize($('.polaroid_message'), $('.polaroid_message').html().length);
 });
 
 $(document).on('pageshow', function (event) {
