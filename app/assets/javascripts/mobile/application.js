@@ -15,6 +15,7 @@
 //= require jquery-ui
 //= require turbolinks
 //= require ../shared/polaroid_font_resize
+//= require ../shared/scale_image
 //= require_directory .
 
 $(function() {

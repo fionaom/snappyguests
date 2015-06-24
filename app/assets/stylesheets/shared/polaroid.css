@@ -30,7 +30,7 @@ div#polaroid_container #photo {
     text-align: center;
 }
 
-div#polaroid_container #photo img#display_photo  {
+div#polaroid_container #photo img.display_photo, #photo img.object  {
     margin-left: auto;
     margin-right: auto;
 
@@ -61,6 +61,22 @@ div#polaroid_container #photo div#message, div#lg-slider div#message {
     font-size: 4vmin;
 }
 
+div#polaroid_container div#message .polaroid_message, div#lg-slider .polaroid_message{
+    box-shadow: none;
+    padding: 0px;
+    overflow: hidden;
+    height: 60px;
+    border: 0px;
+    background-color: none;
+    background-color: transparent;
+    font-family: 'Permanent Marker', cursive, Helvetica, sans-serif !important;
+    color: black !important;
+    text-align: center;
+    font-size: 4vmin;
+    word-wrap: break-word;
+    z-index:5;
+}
+
 div#polaroid_container div#message div:first-of-type {
     margin-top: 5px;
 }
@@ -79,43 +95,3 @@ div#polaroid_container div#message div#chars-remaining {
     border-radius: 2px;
     padding: 1vmin 2vmin;
 }
-
-div#polaroid_container div#message .polaroid_message {
-    box-shadow: none;
-    border-radius: 0px;
-    padding: 0px;
-    overflow: hidden;
-    height: 60px;
-    border: 0px;
-    background-color: none;
-    background-color: transparent;
-    font-family: 'Permanent Marker', cursive, Helvetica, sans-serif !important;
-    color: black !important;
-    text-align: center;
-    font-size: 4vmin;
-    word-wrap: break-word;
-}
-
-/* Admin slide show */
-/*
-div.objectContainer, #lg-slider {
-    background-image: url('/images/polaroid.png');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    min-width: 200px;
-    max-width: 700px;
-    max-height: 730px;
-    margin: 0 auto;
-}
-div.objectContainer img.object {
-    height: 64% !important;
-    margin-top: 75px !important;
-    max-width: 520px !important;
-    max-height: 430px !important;
-}
-*/

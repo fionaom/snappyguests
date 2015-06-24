@@ -2,6 +2,8 @@
    msg = message.body
    msg ||= ""
 %>
-<li style="display:none" id="message_<%=message.id%>" data-message-id="<%= message.id %>" data-message="<div style='<%=polaroid_font_size(msg)%>'><%= message.body %></div>" data-src="<%= message.photo(:large).to_s %>">
-  <img src="<%= message.photo(:large).to_s %>" onload="bounceIn('#message_<%=message.id%>')" />
+
+
+<li style="display:none" id="message_<%=message.id%>" data-message-id="<%= message.id %>" data-message="<div style='<%=polaroid_font_size(msg)%>'><%= message.body %></div>" data-src="<%= message.photo(:large).to_s %>" >
+  <div class="black_bg_thumb"><img id="display_photo_<%=message.id%>" src="<%= message.photo(:thumb).to_s %>" onload="bounceIn('#message_<%=message.id%>'); scaleImage($('#display_photo_<%=message.id%>'),<%= message.photo_width %>,<%= message.photo_height %>);"  /></div>
 </li>

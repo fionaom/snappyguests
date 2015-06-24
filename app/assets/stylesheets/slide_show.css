@@ -25,15 +25,21 @@ body#slide_show .footer .container
 }
 
 .gallery li {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 120px;
     display: block;
     float: left;
     margin-right: 30px;
     margin-bottom: 30px;
 }
 
-.gallery li img {
-   width: 100px;
-   height: 100px;
+
+
+.black_bg_thumb {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }

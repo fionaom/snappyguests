@@ -377,7 +377,7 @@ var interval = false;
                     if (!$this.isVideo(src, index)) {
                         setTimeout(function () {
                             if (!$slide.eq(index).hasClass('loaded')) {
-                                $slide.eq(index).prepend('<div id="polaroid_container"><div id="maintain_aspect_ratio"><div id="photo"><div id="black_bg"><div class="objectContainer"><img class="object" src="' + src + '" /></div></div></div><div id="polaroid_bg"><div id="message"><div>'+message+'</div></div></div></div></div>');
+                                $slide.eq(index).prepend('<div id="polaroid_container"><div id="photo"><div id="black_bg"><div class="objectContainer"><img class="object" onload="scaleImage($(/'.object/'), photo_width, photo_height);" src="' + src + '" /></div></div><div id="message"><div class="polaroid_message">'+message+'</div></div></div><div id="polaroid_bg">&nbsp;</div></div>');
                                 $this.addHtml(index);
                                 $slide.eq(index).addClass('loaded');
                             }

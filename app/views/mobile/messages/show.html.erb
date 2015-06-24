@@ -12,7 +12,7 @@
     <div id="polaroid_container" class="loadingImages">
         <div id="photo">
           <div id="black_bg">
-            <%= image_tag @message.photo(:large), :onload=>"fadeInImage(this),aspectFit(this)", :class=> "fadeInImage loading", :id => "display_photo" %>
+            <%= image_tag @message.photo(:large), :onload=>"fadeInImage(this),aspectFit(this)", :class=> "fadeInImage loading display_photo" %>
           </div>
           <div id="message"> <div class="polaroid_message"><%=@message.body%></div> </div>
         </div>
