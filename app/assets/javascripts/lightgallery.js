@@ -372,12 +372,17 @@ var interval = false;
                 }
 
                 var message = $children.eq(index).attr('data-message');
+                var photo_width = $children.eq(index).attr('data-width');
+                var photo_height = $children.eq(index).attr('data-height');
+                var force_parent = "black_bg";
+
 
                 if (typeof src !== 'undefined' && src !== '') {
                     if (!$this.isVideo(src, index)) {
                         setTimeout(function () {
                             if (!$slide.eq(index).hasClass('loaded')) {
-                                $slide.eq(index).prepend('<div id="polaroid_container"><div id="photo"><div id="black_bg"><div class="objectContainer"><img class="object" onload="scaleImage($(/'.object/'), photo_width, photo_height);" src="' + src + '" /></div></div><div id="message"><div class="polaroid_message">'+message+'</div></div></div><div id="polaroid_bg">&nbsp;</div></div>');
+                                var scaleFunction = "scaleImage($(this)," + photo_width + ", " + photo_height + ", " + force_parent + ");";
+                                $slide.eq(index).prepend('<div id="polaroid_container"><div id="photo"><div id="black_bg"><div class="objectContainer"><img class="object" onload="'+scaleFunction+'" src="' + src + '" /></div></div><div id="message"><div class="polaroid_message">'+message+'</div></div></div><div id="polaroid_bg">&nbsp;</div></div>');
                                 $this.addHtml(index);
                                 $slide.eq(index).addClass('loaded');
                             }

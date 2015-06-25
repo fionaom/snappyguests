@@ -1,17 +1,22 @@
 /**
  * Created by johnowens0 on 24/06/15.
  */
-function scaleImage(image_id, imageOriginalWidth, imageOriginalHeight) {
-    alert("running scaler");
-
+function scaleImage(image_id, imageOriginalWidth, imageOriginalHeight, force_parent) {
     var imageID = $(image_id);
 
     var ratio = 1;  // Used for aspect ratio
     var width = imageOriginalWidth;    // Current image width
     var height = imageOriginalHeight;  // Current image height
 
-    var parent_width = imageID.parent("div").width();
-    var parent_height = imageID.parent("div").height();
+    if (typeof force_parent === 'undefined') {
+        parent_width = imageID.parent("div").width();
+        parent_height = imageID.parent("div").height();
+    }
+    else {
+        var forceParent = $(force_parent);
+        parent_width = forceParent.width();
+        parent_height = forceParent.height();
+    }
 
 
     if (width > height) {
@@ -25,7 +30,7 @@ function scaleImage(image_id, imageOriginalWidth, imageOriginalHeight) {
         top_gap_percent = 100* (top_gap / parent_height);
         imageID.css("margin-top", top_gap_percent+"%");
 
-        //alert("w>h Scaler - r: " + ratio + ", w%: " + width_percent);
+        //alert("w>h Scaler - r: " + ratio + ", w%: " + width_percent + ", fp: " + force_parent);
     }
     else {
         ratio = parent_height / height;   // get ratio for scaling image
@@ -37,6 +42,6 @@ function scaleImage(image_id, imageOriginalWidth, imageOriginalHeight) {
         imageID.css("margin-left", "auto");
         imageID.css("margin-right", "auto");
 
-        //alert("h>w Scaler - r: " + ratio + ", w%: " + width_percent);
+        //alert("h>w Scaler - r: " + ratio + ", w%: " + width_percent + ", fp: " + force_parent);
     }
 }
