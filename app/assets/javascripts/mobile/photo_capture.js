@@ -54,6 +54,21 @@ $(document).on('pageshow', function (event) {
                 var snapshot = $('.display_photo');
                 scaleImage(snapshot, this.width, this.height);
 
+                // Rotate image based on EXIF
+                // http://www.impulseadventure.com/photo/exif-orientation.html
+                EXIF.getData(this, function() {
+                    var orientation = EXIF.getTag(this, 'Orientation');
+                    if (orientation == "3") {
+                        snapshot.addClass("rotate180");
+                    }
+                    else if (orientation == "6") {
+                        snapshot.addClass("rotate90");
+                    }
+                    else if (orientation == "8") {
+                        snapshot.addClass("rotate270");
+                    }
+                });
+
                 snapshot.attr('src', e.target.result).show();
                 changeStep('.upload_step', '.message_step', 'fwd');
               //  $.mobile.changePage('#message', {'transition' : 'slide'});
