@@ -2,6 +2,9 @@ var load_new_messages_interval = null;
 var load_new_messages_interval_time = 5000;
 var lightGallery = null;
 
+// This variable will be used to keep track of whether or not we have reached the end of the slide show
+var slide_show_reached_end = false;
+
 $(function() {
 
     var hideThumbnailsTimeout = null;
@@ -33,7 +36,7 @@ $(function() {
 function loadNewMessages()
 {
     var last_message_id = $('#light-gallery li:last-child').data('message-id');
-   // console.log(last_message_id);
+    console.log(last_message_id);
     $.get(window.location.href + '/messages/'+last_message_id, function(data){
 
     });
@@ -55,8 +58,12 @@ function bounceIn(messageId) {
     $(messageId).toggle( "bounce", { times: 1 }, "slow" );
 }
 
-function initializeLightGallery(selectMessageId)
+function initializeLightGallery(previouslySelectedMessageId, newlyAddedMessageId)
 {
+
+    console.log('Previously Selected Message Id: '+previouslySelectedMessageId);
+
+    console.log('Newly Added Message Id: '+newlyAddedMessageId);
     $('#light-gallery li').unbind('click');
 
   //  if (lightGallery)
@@ -71,7 +78,7 @@ function initializeLightGallery(selectMessageId)
         allPhotos: $('#light-gallery').data('event-title')
     },
     addClass: 'showThumbByDefault',
-    mode: 'slide',
+    mode: 'fade',
     auto: true,
     loop: true,
     speed: 1000,
@@ -79,20 +86,27 @@ function initializeLightGallery(selectMessageId)
     hideControlOnEnd: true,
     onOpen        : function(el) {
         // Do not show controls - hiding them from config doesn't work correctly
-    //    $("#lg-action").hide();
         setTimeout(function () {
             $('#lg-gallery').removeClass('open');
         }, 800);
     },
     onFinishedInitializing: function(el)
     {
+        if (typeof(previouslySelectedMessageId) != "undefined")
+        {
 
-       // console.log();
-        // If we have already gone through all photos from start to finish, then immediately go to this photo
-       // if ($('#lg-gallery').hasClass('alreadyLooped'))
-      //  console.log($('#lg-gallery').data('last_seen_message_id'));
-        //   $(selectMessageId).trigger('click');
-    }
+         //   console.log('Previously Selected Message Id: '+previouslySelectedMessageId);
+            var open_message_id = previouslySelectedMessageId;
+            if ($('#slide_show').hasClass('looped')) {
+            //    console.log("selecting image" + newlyAddedMessageId);
+                open_message_id = newlyAddedMessageId;
+                $('#slide_show').removeClass('looped');
+            }
+          //  console.log("Opening" + open_message_id);
+            $("#light-gallery li#message_" + open_message_id).trigger('click');
+        }
+        }
+   // }
 });
 
     return lightGallery;

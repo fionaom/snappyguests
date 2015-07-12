@@ -4,7 +4,7 @@ clearInterval(load_new_messages_interval);
    <% @new_messages.each do |message| %>
       $("<%= escape_javascript(render 'message_list_item', :message => message) %>").appendTo("#light-gallery");
    <% end %>
-   lightGallery = initializeLightGallery("#light-gallery li#message_"+<%=@new_messages.first.id%>);
+   lightGallery = initializeLightGallery($('#light-gallery li.current').data('message-id'), <%=@new_messages.first.id%>);
 <% end %>
 
 load_new_messages_interval = setInterval(function(){ loadNewMessages();},load_new_messages_interval_time);

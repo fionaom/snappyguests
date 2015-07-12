@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330203109) do
+ActiveRecord::Schema.define(version: 20150712132837) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20150330203109) do
     t.datetime "photo_updated_at"
     t.integer  "event_id",           limit: 4,   null: false
     t.string   "email",              limit: 255, null: false
+    t.integer  "photo_width",        limit: 4
+    t.integer  "photo_height",       limit: 4
   end
 
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
