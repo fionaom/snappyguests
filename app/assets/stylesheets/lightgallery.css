@@ -666,9 +666,9 @@ left: 0;
 #light-gallery li:after {
     content: '';
     position: relative;
-    top: -100px; right: 0;
+    top: -93px; right: 0;
     bottom: 0; left: 0;
-    background: url('/images/polaroid-blank.png');
+    background: url('/images/polaroid.png');
     background-size: 110px 120px;
     width: 110px;
     height: 120px;
@@ -690,8 +690,7 @@ left: 0;
 }
 */
 
-#lg-slider .lg-slide:before
-{
+#lg-slider .lg-slide:before {
     height: 0%;
 }
 
@@ -712,8 +711,7 @@ left: 0;
 #lg-slider {
     background-image: url('/assets/wooden_bg.jpg');
 }
-#lg-slider .message
-{
+#lg-slider .message {
     position: relative;
     top: -20px;
 
@@ -728,7 +726,7 @@ left: 0;
 
 #lg-slider .lg-slide img {
     max-height: 74%;
-    margin-top: 37px;
+    margin-top: 38px;
 }
 
 #lg-gallery #lg-action {

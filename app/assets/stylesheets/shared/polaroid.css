@@ -11,11 +11,9 @@ div#polaroid_container #polaroid_bg {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: absolute;
-    top: 1vmin; bottom: 0; right: 0; left: 3vmin;
-    height: 80vmin;
-    width: 80vmin;
-    max-width: 700px;
-    max-height: 730px;
+    top: 1vmin; bottom: 0; right: 0; left: 0vmin;
+    height: 85vmin;
+    width: 70vmin;
     margin: 0 auto;
     z-index:0;
 }
@@ -23,8 +21,6 @@ div#polaroid_container #polaroid_bg {
 div#polaroid_container #photo {
     position: absolute;
     top: 0; bottom: 0; right: 0; left: 0;
-    max-width: 700px;
-    max-height: 730px;
     margin: 0 auto;
     z-index: 2;
     text-align: center;
@@ -33,17 +29,15 @@ div#polaroid_container #photo {
 div#polaroid_container #photo img.display_photo, #photo img.object  {
     margin-left: auto;
     margin-right: auto;
-
 }
 
 div#polaroid_container #black_bg {
     background-color: black;
-    width: 53vmin;
-    height: 53vmin;
-    margin-top: 11.6vmin;
+    width: 57vmin;
+    height: 58vmin;
+    margin-top: 9vmin;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 div#polaroid_container #photo div#message, div#lg-slider div#message {

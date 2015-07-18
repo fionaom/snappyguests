@@ -1,4 +1,5 @@
-<ul id="light-gallery" class="gallery" data-event-title="<%= @event.title %>">
+
+<ul id="light-gallery" style="margin-top: 5vmin;" class="gallery" data-event-title="<%= @event.title %>">
   <% @event.messages.order(:created_at).limit(20).each do |message| %>
     <%= render 'message_list_item', :message => message %>
   <% end %>

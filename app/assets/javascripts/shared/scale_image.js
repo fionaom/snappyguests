@@ -30,7 +30,8 @@ function scaleImage(image_id, imageOriginalWidth, imageOriginalHeight, force_par
         top_gap_percent = 100* (top_gap / parent_height);
         imageID.css("margin-top", top_gap_percent+"%");
 
-        //alert("w>h Scaler - r: " + ratio + ", w%: " + width_percent + ", fp: " + force_parent);
+        //console.log(imageID.parent('div'));
+        //alert("w>h Scaler - name: " + imageID.parent('div').hasClass('.black_bg_thumb') + ", pw: " + parent_width + ", ph: " + parent_height);
     }
     else {
         ratio = parent_height / height;   // get ratio for scaling image
