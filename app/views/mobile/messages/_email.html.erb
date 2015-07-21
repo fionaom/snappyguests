@@ -1,23 +1,15 @@
 <!-- Start of email input step -->
-<div role="main" class="ui-content email_step" data-theme="d" style="display:none">
+<div role="main" class="ui-content email_step" data-theme="a" style="<%= @step == "email_step" ? "" : "display:none"%>">
 
-  <!-- Fade in content after slide -->
-  <div data-theme="c" class="ui-body ui-body-c ui-corner-all margin contents" style="display:none">
-    <% if session[:email].present? %>
-        Using previously entered email
-    <% else %>
-        Since you are not signed in enter your email to upload your photo
-    <% end %>
+  <!-- Fade in contents after slide -->
+  <div class="contents" style="<%= @step == "email_step" ? "" : "display:none"%>">
+    <label>Event Code</label>
+    <%= text_field_tag :event_code, (@message.event.present? ? @message.event.code : nil), placeholder: 'LOVE', data: {'clear-btn' => true} %>
+    <label>Email</label>
     <%= f.input :email, label: false, input_html: {'data-clear-btn' => true}, placeholder: 'name@email.com', type: :email %>
-  </div>
-
-  <div data-theme="c" class="ui-body ui-body-c ui-corner-all margin contents" style="display:none">
-    <% if session[:event_id].present? %>
-        Using previously entered event ID
-    <% else %>
-        Since you are not signed in, please enter the ID of your event
-    <% end %>
-    <%= f.input :event_id, label: false, input_html: {'data-clear-btn' => true}, placeholder: '******', type: :event_id %>
+    <p>
+      These details will be saved & reused so you do not have to re-enter.
+    </p>
   </div>
 
 </div><!-- /content -->

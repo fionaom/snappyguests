@@ -129,9 +129,9 @@ function changeStep(from, to, direction)
     {
         polaroidMessageFontSize($('.polaroid_message'), $('.polaroid_message').val().length);
 
-        setTimeout(function(){
+      /*  setTimeout(function(){
             $('#message_body').focus();
-        },500);
+        },500); */
     }
 }
 
@@ -159,7 +159,14 @@ $(function() {
             email: {
                 required: true,
                 email: true
+            },
+            event_code: {
+                required: true
             }
+        },
+        errorPlacement: function(error, element) {
+            $(element).closest(".ui-input-text").addClass('error');
+            $(element).append(error);
         }
     });
 

@@ -1,4 +1,4 @@
-<div class="upload_step">
+<div class="upload_step" style="<%= !@step || @step == "upload_step" ? "" : "display:none"%>">
   <div style="width: 0; height: 0; overflow: hidden;">
     <%= f.file_field :photo, :accept => "image/*" %>
   </div>

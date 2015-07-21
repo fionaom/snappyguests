@@ -1,7 +1,7 @@
 <!-- Start of second page -->
-<div role="main" class="ui-content message_step" style="display:none">
+<div role="main" class="ui-content message_step" style="<%= @step == "message_step" ? "" : "display:none"%>">
 
-  <div class="contents" style="display:none">
+  <div class="contents" style="<%= @step == "message_step" ? "" : "display:none"%>">
 
     <!-- Maintain an aspect ratio of width x height (9:10), but do not exceed width of 750px -->
     <div id="polaroid_container">
@@ -9,7 +9,7 @@
           <div id="black_bg"><%= image_tag "", :class => "display_photo" %></div>
 
           <div id="message">
-            <%= f.input :body, label: false, as: :text, placeholder: 'Your message', maxlength: 75, :input_html => {:class => "polaroid_message", :data => {:autogrow => false}} %>
+            <%= f.input :body, label: false, as: :text, placeholder: 'Your message', maxlength: 75, :input_html => {:class => "polaroid_message", :data => {:autogrow => false}, :autofocus => true} %>
             <div id="chars-remaining"></div>
           </div>
         </div>

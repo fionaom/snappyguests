@@ -2,17 +2,27 @@ class Mobile::MessagesController < Mobile::ApplicationController
 
   layout 'mobile'
 
+  before_action :set_step
   before_action :set_event
   before_action :set_message, only: [:show]
   before_action :set_email, only: [:create]
 
   def new
-    @message = Message.new(:user => current_user, :event => Event.first)
+    @message = Message.new(:user => current_user)
     @message.email = session[:email] if session[:email].present?
+    @message.event = Event.find(session[:event_id]) if session[:event_id].present?
   end
 
   def create
     @message = Message.new(message_params)
+
+    if !@event
+      @step = "email_step"
+    else
+      session[:event_id] = @event.id
+    end
+
+    @message.event = @event
 
     respond_to do |format|
       if @message.save
@@ -27,11 +37,19 @@ class Mobile::MessagesController < Mobile::ApplicationController
     @page_id = "show_message"
   end
 
+  def index
+    redirect_to new_message_path
+  end
+
   private
+
+  def set_step
+    @step = "upload_step"
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_event
-    @event = Event.find(params[:event_id]) if params[:event_id]
+    @event = Event.find_by_code(params[:event_code]) if params[:event_code]
   end
 
   def set_message
@@ -44,7 +62,7 @@ class Mobile::MessagesController < Mobile::ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def message_params
-    params.require(:message).permit(:photo, :email, :body, :event_id)
+    params.require(:message).permit(:photo, :email, :body, :event_code)
   end
 
 end
