@@ -11,6 +11,30 @@ $(document).on('pageshow', '#show_message', function (event) {
 });
 
 $(document).on('pageshow', function (event) {
+
+    $('input').on('keydown', function()
+    {
+        $(this).parent('.ui-input-text').removeClass("error");
+    });
+
+    $( "#new_message" ).validate({
+        rules: {
+            body: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            event_code: {
+                required: true
+            }
+        },
+        errorPlacement: function(error, element) {
+            $(element).parent(".ui-input-text").addClass('error');
+            $(element).parent(".ui-input-text").append(error);
+            console.log(error);
+        }
+    });
+
     $('.image_upload').on('click', function () {
         $('input[type="file"]').trigger('click');
         return false;
@@ -153,21 +177,6 @@ function aspectFit(imageContainer) {
 $(function() {
 
 
-    $( "#new_message" ).validate({
-        rules: {
-            body: "required",
-            email: {
-                required: true,
-                email: true
-            },
-            event_code: {
-                required: true
-            }
-        },
-        errorPlacement: function(error, element) {
-            $(element).closest(".ui-input-text").addClass('error');
-            $(element).append(error);
-        }
-    });
+
 
 });

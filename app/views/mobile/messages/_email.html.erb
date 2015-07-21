@@ -4,11 +4,13 @@
   <!-- Fade in contents after slide -->
   <div class="contents" style="<%= @step == "email_step" ? "" : "display:none"%>">
     <label>Event Code</label>
-    <%= text_field_tag :event_code, (@message.event.present? ? @message.event.code : nil), placeholder: 'LOVE', data: {'clear-btn' => true} %>
-    <label>Email</label>
-    <%= f.input :email, label: false, input_html: {'data-clear-btn' => true}, placeholder: 'name@email.com', type: :email %>
+    <%= text_field_tag :event_code, (@message.event.present? ? @message.event.code : nil), placeholder: 'LOVE', data: {'clear-btn' => true}, :required => true %>
+    <br/>
+    <label>Your Email</label>
+    <%= f.input :email, label: false, input_html: {'data-clear-btn' => true}, placeholder: 'name@email.com', type: :email, :required => true %>
+    <br/>
     <p>
-      These details will be saved & reused so you do not have to re-enter.
+      These details will be stored so you do not have to re-enter them
     </p>
   </div>
 
