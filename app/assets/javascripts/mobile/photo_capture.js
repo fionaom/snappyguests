@@ -1,16 +1,25 @@
 var MAX_WIDTH = 260;
 var MAX_HEIGHT = 280;
 var MAX_MSG_LENGTH = 75;
-/*
-$(document).bind('pageinit', function (event) {
-   // $.mobile.hashListeningEnabled = false;
-});*/
 
 $(document).on('pageshow', '#show_message', function (event) {
     polaroidMessageFontSize($('.polaroid_message'), $('.polaroid_message').html().length);
 });
 
 $(document).on('pageshow', function (event) {
+
+    $.mobile.silentScroll(0);
+
+    $('#message_body').on('focus', function(e)
+    {
+        // Stop any further events since this causes this textarea to lose focus
+        e.stopPropagation();
+        e.preventDefault();
+    });
+
+    $('#message_body, #message_email').on('blur', function() {
+        $.mobile.silentScroll(0);
+    });
 
     $('input').on('keydown', function()
     {
@@ -40,8 +49,13 @@ $(document).on('pageshow', function (event) {
         return false;
     });
 
-    $("#message_body").on('change keydown paste input', function() {
 
+    $('#message_body').on('focus', function(e) {
+        return false;
+        e.stopPropagation();
+    });
+
+    $("#message_body").on('change keydown paste input', function(e) {
         var charsRemaining = $('#chars-remaining');
 
         // Display the characters remaining if there are only < 10 remaining
@@ -80,18 +94,24 @@ $(document).on('pageshow', function (event) {
 
                 // Rotate image based on EXIF
                 // http://www.impulseadventure.com/photo/exif-orientation.html
+                width = this.width;
+                height = this.height;
                 EXIF.getData(this, function() {
                     var orientation = EXIF.getTag(this, 'Orientation');
                     if (orientation == "3") {
-                        snapshot.addClass("rotate180");
+                      //  snapshot.addClass("rotate180");
                     }
                     else if (orientation == "6") {
-                        snapshot.addClass("rotate90");
+                       // snapshot.addClass("rotate90");
+                        height = this.width;
+                        width = this.height;
                     }
                     else if (orientation == "8") {
-                        snapshot.addClass("rotate270");
+                       // snapshot.addClass("rotate270");
                     }
                 });
+
+                scaleImage(snapshot, width, height);
 
                 snapshot.attr('src', e.target.result).show();
                 changeStep('.upload_step', '.message_step', 'fwd');
@@ -153,9 +173,10 @@ function changeStep(from, to, direction)
     {
         polaroidMessageFontSize($('.polaroid_message'), $('.polaroid_message').val().length);
 
-      /*  setTimeout(function(){
-            $('#message_body').focus();
-        },500); */
+
+       /* setTimeout(function() {
+            $('#message_body').click();
+        }, 1000);*/
     }
 }
 

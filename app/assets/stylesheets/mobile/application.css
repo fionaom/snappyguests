@@ -17,7 +17,12 @@
  */
 
 .ui-content {
-    padding: 0px;
+   /* padding: 0px; */
+}
+
+/* Force the polaroid to be at 60 top since otherwise it randomly has more margins on the show.html */
+div#polaroid_container {
+    top: 60px;
 }
 
 .ui-body.margin {

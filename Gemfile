@@ -37,6 +37,7 @@ gem 'devise' # User sign in
 gem 'simple_form'
 
 gem "paperclip", "~> 4.2"
+gem "exifr"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
