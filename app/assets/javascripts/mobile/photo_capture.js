@@ -102,17 +102,23 @@ $(document).on('pageshow', function (event) {
                 width = this.width;
                 height = this.height;
                 EXIF.getData(this, function() {
+                    var iOS = /iPad|iPhone|iPod/.test(navigator.platform);
                     var orientation = EXIF.getTag(this, 'Orientation');
                     if (orientation == "3") {
-                        snapshot.addClass("rotate180");
+                        if (!iOS)
+                            snapshot.addClass("rotate180");
                     }
                     else if (orientation == "6") {
-                        snapshot.addClass("rotate90");
-                       // height = this.width;
-                        //width = this.height;
+                        if (!iOS)
+                            snapshot.addClass("rotate90");
+                        else {
+                            height = this.width;
+                            width = this.height;
+                        }
                     }
                     else if (orientation == "8") {
-                        snapshot.addClass("rotate270");
+                        if (!iOS)
+                            snapshot.addClass("rotate270");
                     }
                 });
 

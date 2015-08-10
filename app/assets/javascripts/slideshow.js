@@ -31,6 +31,8 @@ $(function() {
         $('#lg-gallery').removeClass('open');
     });
 
+
+
 });
 
 function loadNewMessages()
@@ -61,9 +63,9 @@ function bounceIn(messageId) {
 function initializeLightGallery(previouslySelectedMessageId, newlyAddedMessageId)
 {
 
-    console.log('Previously Selected Message Id: '+previouslySelectedMessageId);
+   // console.log('Previously Selected Message Id: '+previouslySelectedMessageId);
 
-    console.log('Newly Added Message Id: '+newlyAddedMessageId);
+   // console.log('Newly Added Message Id: '+newlyAddedMessageId);
     $('#light-gallery li').unbind('click');
 
   //  if (lightGallery)
@@ -80,8 +82,9 @@ function initializeLightGallery(previouslySelectedMessageId, newlyAddedMessageId
     addClass: 'showThumbByDefault',
     mode: 'fade',
     auto: true,
-    loop: true,
+    loop: false,
     speed: 1000,
+    pause: 10000,
     showThumbByDefault: true,
     hideControlOnEnd: true,
     onOpen        : function(el) {

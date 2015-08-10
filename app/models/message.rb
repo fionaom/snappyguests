@@ -16,7 +16,7 @@ class Message < ActiveRecord::Base
   def save_photo_dimensions
       geometry = Paperclip::Geometry.from_file(self.photo.queued_for_write[:original])
       image_exif_data = EXIFR::JPEG.new(self.photo.queued_for_write[:original].path).exif
-      puts "#{image_exif_data[:orientation].inspect}"
+    #  puts "#{image_exif_data[:orientation].inspect}"
       self.photo_width = geometry.width.to_i
       self.photo_height = geometry.height.to_i
       if (image_exif_data[:orientation] == EXIFR::TIFF::RightTopOrientation)

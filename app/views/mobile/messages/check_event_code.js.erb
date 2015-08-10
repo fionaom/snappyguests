@@ -1,3 +1,4 @@
+$('#event_code-error').remove();
 <% if @event %>
   $('#event_code').parent(".ui-input-text").removeClass('error');
   $('#event_code').parent(".ui-input-text").append('<label id="event_code-error" class="ui-icon-check ui-btn-icon-left error valid" for="event_code"> Event found!</label>');
