@@ -8,6 +8,12 @@ $(document).on('pageshow', '#show_message', function (event) {
 
 $(document).on('pageshow', function (event) {
 
+    $('#event_code').on('keyup', function()
+    {
+        if ($.trim($(this).val()) != '')
+            validateEventCode($(this).val());
+    });
+
     $.mobile.silentScroll(0);
 
     $('#message_body').on('focus', function(e)
@@ -40,11 +46,10 @@ $(document).on('pageshow', function (event) {
         errorPlacement: function(error, element) {
             $(element).parent(".ui-input-text").addClass('error');
             $(element).parent(".ui-input-text").append(error);
-            console.log(error);
         }
     });
 
-    $('.image_upload').on('click', function () {
+    $('.image_upload, .upload_step #polaroid_container').on('click', function () {
         $('input[type="file"]').trigger('click');
         return false;
     });
@@ -99,15 +104,15 @@ $(document).on('pageshow', function (event) {
                 EXIF.getData(this, function() {
                     var orientation = EXIF.getTag(this, 'Orientation');
                     if (orientation == "3") {
-                      //  snapshot.addClass("rotate180");
+                        snapshot.addClass("rotate180");
                     }
                     else if (orientation == "6") {
-                       // snapshot.addClass("rotate90");
-                        height = this.width;
-                        width = this.height;
+                        snapshot.addClass("rotate90");
+                       // height = this.width;
+                        //width = this.height;
                     }
                     else if (orientation == "8") {
-                       // snapshot.addClass("rotate270");
+                        snapshot.addClass("rotate270");
                     }
                 });
 
@@ -137,7 +142,7 @@ $(document).on('pageshow', function (event) {
 
     $('#new_message').on('submit', function(e)
     {
-        if ($('#new_message').valid()) {
+        if ($('#new_message').valid() && !$('#event_code').hasClass('invalid_code')) {
             $.mobile.loading('show', {
                 text: 'Uploading...',
                 textVisible: true,
@@ -152,6 +157,21 @@ $(document).on('pageshow', function (event) {
     });
 
 });
+
+function validateEventCode(event_code)
+{
+    $('#event_code-error').remove();
+    $.ajax({
+        url: '/messages/check-event-code/'+event_code,
+        success: function(data) {
+            if (data.length) {
+
+            }
+        },
+        error: function(data) {
+
+        }});
+}
 
 function changeStep(from, to, direction)
 {

@@ -2,7 +2,7 @@ class Mobile::MessagesController < Mobile::ApplicationController
 
   layout 'mobile'
 
-  before_action :set_step
+  before_action :set_step, :except => [:check_event_code]
   before_action :set_event
   before_action :set_message, only: [:show]
   before_action :set_email, only: [:create]
@@ -39,6 +39,9 @@ class Mobile::MessagesController < Mobile::ApplicationController
 
   def index
     redirect_to new_message_path
+  end
+
+  def check_event_code
   end
 
   private

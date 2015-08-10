@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   constraints(lambda { |request| MobileSubdomain.matches?(request) }) do
     scope :module => :mobile do
 
+      get  '/messages/check-event-code/:event_code' => 'messages#check_event_code'
       resources :messages
 
       # Root of site

@@ -110,3 +110,11 @@ label.error {
 #form-errors h4 {
     margin: 0.4em;
 }
+
+label.error {
+    margin-top: 10px;
+}
+
+label.error.valid {
+    color: green;
+}
