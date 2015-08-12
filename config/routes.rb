@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     scope :module => :admin do
 
       get  '/see/:uuid/messages/:last_id' => 'slide_show#new_messages'
+      get '/see/:uuid/delete' => 'slide_show#delete_message'
       get  '/see/:uuid' => 'slide_show#show', as: :event_slideshow
       resources :events do
         resources :messages
@@ -23,7 +24,6 @@ Rails.application.routes.draw do
     scope :module => :mobile do
 
       get  '/messages/check-event-code/:event_code' => 'messages#check_event_code'
-      get '/messages/:id/delete' => 'messages#delete'
       resources :messages
 
       # Root of site

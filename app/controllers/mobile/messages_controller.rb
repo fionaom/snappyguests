@@ -46,12 +46,6 @@ class Mobile::MessagesController < Mobile::ApplicationController
   def check_event_code
   end
 
-  def delete
-    @message.destroy
-
-    redirect_to new_message_path
-  end
-
   private
 
   def set_step
