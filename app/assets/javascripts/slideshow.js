@@ -1,5 +1,5 @@
 var load_new_messages_interval = null;
-var load_new_messages_interval_time = 8000;
+var load_new_messages_interval_time = 5000;
 var lightGallery = null;
 
 // This variable will be used to keep track of whether or not we have reached the end of the slide show
@@ -82,7 +82,7 @@ function initializeLightGallery(previouslySelectedMessageId, newlyAddedMessageId
     addClass: 'showThumbByDefault',
     mode: 'fade',
     auto: true,
-    loop: false,
+    loop: true,
     speed: 1000,
     pause: 10000,
     showThumbByDefault: true,
