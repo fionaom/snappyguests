@@ -52,6 +52,12 @@ class Admin::MessagesController < ApplicationController
     end
   end
 
+  def destroy
+    @message.destroy
+
+    redirect_to event_messages_path(@event)
+  end
+
   private
 
     # Use callbacks to share common setup or constraints between actions.

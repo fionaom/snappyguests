@@ -5,14 +5,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:body) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:photo_file_name) %></th>
-      <th><%= model_class.human_attribute_name(:photo_content_type) %></th>
-      <th><%= model_class.human_attribute_name(:photo_file_size) %></th>
-      <th><%= model_class.human_attribute_name(:photo_updated_at) %></th>
-      <th><%= model_class.human_attribute_name(:event_id) %></th>
+      <th><%= model_class.human_attribute_name(:photo) %></th>
+      <th><%= model_class.human_attribute_name(:message) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -20,14 +14,8 @@
   <tbody>
     <% @messages.each do |message| %>
       <tr>
-        <td><%= link_to message.id, event_message_path(message.event, message) %></td>
+        <td><%= link_to image_tag(message.photo(:thumb).to_s), event_message_path(message.event, message), :class => "thumbnail" %></td>
         <td><%= message.body %></td>
-        <td><%= message.user_id %></td>
-        <td><%= message.photo_file_name %></td>
-        <td><%= message.photo_content_type %></td>
-        <td><%= message.photo_file_size %></td>
-        <td><%= message.photo_updated_at %></td>
-        <td><%= message.event_id %></td>
         <td><%=l message.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
