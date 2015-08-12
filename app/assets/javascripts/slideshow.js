@@ -1,5 +1,5 @@
 var load_new_messages_interval = null;
-var load_new_messages_interval_time = 5000;
+var load_new_messages_interval_time = 8000;
 var lightGallery = null;
 
 // This variable will be used to keep track of whether or not we have reached the end of the slide show
@@ -38,7 +38,7 @@ $(function() {
 function loadNewMessages()
 {
     var last_message_id = $('#light-gallery li:last-child').data('message-id');
-    console.log(last_message_id);
+   // console.log(last_message_id);
     $.get(window.location.href + '/messages/'+last_message_id, function(data){
 
     });
