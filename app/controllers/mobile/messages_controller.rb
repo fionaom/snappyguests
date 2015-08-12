@@ -2,9 +2,11 @@ class Mobile::MessagesController < Mobile::ApplicationController
 
   layout 'mobile'
 
+  skip_before_action :verify_authenticity_token
+
   before_action :set_step, :except => [:check_event_code]
   before_action :set_event
-  before_action :set_message, only: [:show]
+  before_action :set_message, only: [:show, :delete]
   before_action :set_email, only: [:create]
 
   def new
@@ -42,6 +44,12 @@ class Mobile::MessagesController < Mobile::ApplicationController
   end
 
   def check_event_code
+  end
+
+  def delete
+    @message.destroy
+
+    redirect_to new_message_path
   end
 
   private

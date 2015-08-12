@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     scope :module => :mobile do
 
       get  '/messages/check-event-code/:event_code' => 'messages#check_event_code'
+      get '/messages/:id/delete' => 'messages#delete'
       resources :messages
 
       # Root of site

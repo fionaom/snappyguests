@@ -6,8 +6,12 @@
   <%= javascript_include_tag 'mobile/application', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
   <link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+  <!-- Favicon Rotator -->
+  <link rel="shortcut icon" href="images/snappyguests-Favicon.png" />
+  <link rel="apple-touch-icon-precomposed" href="images/snappyguests-Favicon.png" />
   <%= stylesheet_link_tag    'mobile/application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= yield :header %>
 </head>
 <body id="<%= @page_id.present? ? @page_id : ""%>">
     <%= yield %>
