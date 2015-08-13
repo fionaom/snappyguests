@@ -84,7 +84,7 @@ function initializeLightGallery(previouslySelectedMessageId, newlyAddedMessageId
     auto: true,
     loop: true,
     speed: 1000,
-    pause: 10000,
+    pause: 7000,
     showThumbByDefault: true,
     hideControlOnEnd: true,
     onOpen        : function(el) {
@@ -101,7 +101,7 @@ function initializeLightGallery(previouslySelectedMessageId, newlyAddedMessageId
          //   console.log('Previously Selected Message Id: '+previouslySelectedMessageId);
             var open_message_id = previouslySelectedMessageId;
             if ($('#slide_show').hasClass('looped')) {
-            //    console.log("selecting image" + newlyAddedMessageId);
+                console.log("selecting image" + newlyAddedMessageId);
                 open_message_id = newlyAddedMessageId;
                 $('#slide_show').removeClass('looped');
             }

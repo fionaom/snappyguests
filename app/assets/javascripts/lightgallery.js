@@ -739,6 +739,7 @@ var interval = false;
                 $slide.eq(prevIndex).removeClass('current');
                 $slide.eq(index).addClass('current');
                 $children.eq(index).addClass('current');
+                $children.eq(prevIndex).removeClass('current');
 
                 if (this.doCss() && settings.mode === 'slide') {
                     if (usingThumb === false) {
