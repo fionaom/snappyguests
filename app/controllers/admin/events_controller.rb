@@ -62,6 +62,7 @@ class Admin::EventsController < ApplicationController
     end
   end
 
+=begin
   def download_all_polaroids
     if (File.exists?("tmp/download_all_polaroids/"))
       puts "[ ok ] Deleting existing tmp/download_all_polaroids/ directory"
@@ -72,9 +73,10 @@ class Admin::EventsController < ApplicationController
     FileUtils.mkpath("tmp/download_all_polaroids/")
 
     @event.messages.each do |message|
-      FileUtils.cp_r download_oolaroid_path(message), "tmp/download_all_polaroids/#{message.id}.png"
+      FileUtils.cp_r(download_polaroid_path(message), "tmp/download_all_polaroids/#{message.id}.png")
     end
   end
+=end
 
   private
     # Use callbacks to share common setup or constraints between actions.

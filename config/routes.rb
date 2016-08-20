@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get  '/see/:uuid/messages/:last_id' => 'slide_show#new_messages'
       get '/see/:uuid/delete' => 'slide_show#delete_message'
       get  '/see/:uuid' => 'slide_show#show', as: :event_slideshow
+     # get  '/download/:id' => 'event#download_all_polaroids', as: :event_download_all_polaroids
       resources :events do
         resources :messages
       end
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
 
       get  '/messages/check-event-code/:event_code' => 'messages#check_event_code'
       get  '/messages/polaroid/:id' => 'messages#show_polaroid', as: :show_polaroid
-      get  '/messages/download-polaroid/:id' => 'messages#download_polaroid', as: :download_oolaroid
+    #  get  '/messages/download-polaroid/:id' => 'messages#download_polaroid', as: :download_polaroid
       resources :messages
 
       # Root of site

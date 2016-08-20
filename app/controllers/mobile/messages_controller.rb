@@ -50,15 +50,17 @@ class Mobile::MessagesController < Mobile::ApplicationController
     @page_id = "download_polaroid"
   end
 
+=begin
   def download_polaroid
     #kit = IMGKit.new(render_to_string(:show_polaroid), :quality => 50)
-    kit = IMGKit.new("http://m.localhost.com:3000/messages/polaroid/130")
+    kit = IMGKit.new("http://m.snappyguests.com/messages/polaroid/#{params[:id]}")
    # kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/imgkit/application.css"
    # kit.javascripts << "#{Rails.root}/app/assets/javascripts/imgkit/application.js"
     img =  kit.to_img(:png)
     #send_file img.to_s.gsub("\u0000", ''), type: 'image/png', disposition: 'inline'
     send_data(img, :type => "image/jpeg", :disposition => 'inline')
   end
+=end
 
   private
 
