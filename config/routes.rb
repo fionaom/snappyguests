@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     scope :module => :mobile do
 
       get  '/messages/check-event-code/:event_code' => 'messages#check_event_code'
+      get  '/messages/polaroid/:id' => 'messages#show_polaroid', as: :show_polaroid
+      get  '/messages/download-polaroid/:id' => 'messages#download_polaroid', as: :download_oolaroid
       resources :messages
 
       # Root of site

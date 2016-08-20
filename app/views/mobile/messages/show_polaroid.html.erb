@@ -1,0 +1,22 @@
+<!-- Start of second page -->
+<div role="main" class="ui-content message_step">
+
+  <div class="contents">
+
+    <!-- Maintain an aspect ratio of width x height (9:10), but do not exceed width of 750px -->
+    <div id="polaroid_container">
+      <div id="photo">
+        <div id="black_bg"><%= image_tag @message.photo(:large), :id => "current_image", :class => "display_photo", :onload => "scaleImage('#current_image', #{@message.photo_width}, #{@message.photo_height})" %></div>
+
+        <div id="message">
+          <div style='<%=polaroid_font_size(@message.body)%>'><%= @message.body %></div>
+          <div id="chars-remaining"></div>
+        </div>
+      </div>
+      <div id="polaroid_bg">&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /content -->

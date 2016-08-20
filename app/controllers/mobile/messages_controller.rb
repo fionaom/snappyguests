@@ -6,7 +6,7 @@ class Mobile::MessagesController < Mobile::ApplicationController
 
   before_action :set_step, :except => [:check_event_code]
   before_action :set_event
-  before_action :set_message, only: [:show, :delete]
+  before_action :set_message, only: [:show, :delete, :show_polaroid, :download_polaroid]
   before_action :set_email, only: [:create]
 
   def new
@@ -44,6 +44,20 @@ class Mobile::MessagesController < Mobile::ApplicationController
   end
 
   def check_event_code
+  end
+
+  def show_polaroid
+    @page_id = "download_polaroid"
+  end
+
+  def download_polaroid
+    #kit = IMGKit.new(render_to_string(:show_polaroid), :quality => 50)
+    kit = IMGKit.new("http://m.localhost.com:3000/messages/polaroid/130")
+   # kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/imgkit/application.css"
+   # kit.javascripts << "#{Rails.root}/app/assets/javascripts/imgkit/application.js"
+    img =  kit.to_img(:png)
+    #send_file img.to_s.gsub("\u0000", ''), type: 'image/png', disposition: 'inline'
+    send_data(img, :type => "image/jpeg", :disposition => 'inline')
   end
 
   private

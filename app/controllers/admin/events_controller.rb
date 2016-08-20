@@ -62,6 +62,20 @@ class Admin::EventsController < ApplicationController
     end
   end
 
+  def download_all_polaroids
+    if (File.exists?("tmp/download_all_polaroids/"))
+      puts "[ ok ] Deleting existing tmp/download_all_polaroids/ directory"
+      FileUtils.remove_dir("tmp/download_all_polaroids/")
+    end
+
+    # Create folder
+    FileUtils.mkpath("tmp/download_all_polaroids/")
+
+    @event.messages.each do |message|
+      FileUtils.cp_r download_oolaroid_path(message), "tmp/download_all_polaroids/#{message.id}.png"
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event

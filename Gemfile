@@ -38,6 +38,8 @@ gem 'simple_form'
 
 gem "paperclip", "~> 4.2"
 gem "exifr"
+gem "imgkit"
+gem "wkhtmltoimage-binary"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
